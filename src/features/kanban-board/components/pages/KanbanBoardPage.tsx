@@ -115,35 +115,39 @@ export function KanbanBoardPage() {
         p: 3
       }}
     >
-      <Typography variant="h4" component="h1" sx={{ mb: 3, fontWeight: 600 }}>
-        Hunt Board
-      </Typography>
-
-      {/* Search and Filter Bar */}
-      <SearchFilterBar
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedPriorities={selectedPriorities}
-        onPrioritiesChange={setSelectedPriorities}
-        selectedTags={selectedTags}
-        onTagsChange={setSelectedTags}
-        hasFollowUp={hasFollowUp}
-        onFollowUpChange={setHasFollowUp}
-        availableTags={availableTags}
-        activeFilterCount={activeFilterCount}
-        onClearAll={clearAllFilters}
-      />
-
-      <Typography 
-        variant="body2" 
-        color="text.secondary" 
-        sx={{ mb: 2 }}
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
+      {/*
+       * Mobile-first header (Constitution Section XIII):
+       * xs (<600px): column layout — title then SearchFilterBar with controls stacked vertically
+       * sm+ (≥600px): single row — title left, SearchFilterBar right-aligned
+       */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          alignItems: { xs: 'flex-start', sm: 'center' },
+          justifyContent: { xs: 'flex-start', sm: 'space-between' },
+          mb: 3,
+          gap: { xs: 1, sm: 2 },
+        }}
       >
-        Showing {filteredCards.length} of {(boardState.jobTargets ?? []).length} targets
-      </Typography>
+        <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
+          Hunt Board
+        </Typography>
+        <SearchFilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedPriorities={selectedPriorities}
+          onPrioritiesChange={setSelectedPriorities}
+          selectedTags={selectedTags}
+          onTagsChange={setSelectedTags}
+          hasFollowUp={hasFollowUp}
+          onFollowUpChange={setHasFollowUp}
+          availableTags={availableTags}
+          activeFilterCount={activeFilterCount}
+          onClearAll={clearAllFilters}
+          onAddTarget={() => { handleAddTarget('targets-identified'); }}
+        />
+      </Box>
 
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         <Box
@@ -151,16 +155,17 @@ export function KanbanBoardPage() {
           aria-label="Kanban board columns"
           sx={{
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
             gap: 2,
-            overflowX: 'auto',
+            overflowX: { xs: 'hidden', sm: 'auto' },
             pb: 2,
             '&::-webkit-scrollbar': {
-              height: '10px'
+              height: '10px',
             },
             '&::-webkit-scrollbar-thumb': {
               backgroundColor: 'rgba(0, 0, 0, 0.2)',
-              borderRadius: '5px'
-            }
+              borderRadius: '5px',
+            },
           }}
         >
           {boardState.columns.map((column) => (

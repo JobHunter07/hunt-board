@@ -1,7 +1,6 @@
 // src/features/kanban-board/components/organisms/SearchFilterBar.tsx
 import {
   Box,
-  Stack,
   Menu,
   MenuItem,
   FormGroup,
@@ -10,6 +9,8 @@ import {
   Typography,
   Button,
   Divider,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import { useState } from 'react';
 import { SearchField } from '../atoms/SearchField';
@@ -28,6 +29,8 @@ export type SearchFilterBarProps = {
   availableTags: string[];
   activeFilterCount: number;
   onClearAll: () => void;
+  /** Optional handler invoked when user clicks Add Target in header */
+  onAddTarget?: () => void;
 };
 
 /**
@@ -56,7 +59,11 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   availableTags,
   activeFilterCount,
   onClearAll,
+  onAddTarget,
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
 
@@ -85,18 +92,48 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   };
 
   return (
-    <Box sx={{ mb: 3 }}>
-      <Stack
-        direction={{ xs: 'column', sm: 'row' }}
-        spacing={2}
-        alignItems={{ xs: 'stretch', sm: 'center' }}
+    <>
+      {/*
+       * Layout strategy using a single DOM order that works for both breakpoints:
+       * DOM order:  [Add Target Button][FilterButton][SearchField]
+       *
+       * sm+ (row-reverse):     Search | Filter | Add Target  ← right-aligned, expands left
+       * xs  (column-reverse):  Search (top) → Filter → Add Target (bottom)  ← full-width stack
+       *
+       * On mobile, compact=false so SearchField fills full width.
+       * On desktop, compact=true so SearchField collapses to 160px and expands to 300px on focus.
+       */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column-reverse', sm: 'row-reverse' },
+          alignItems: { xs: 'stretch', sm: 'center' },
+          width: { xs: '100%', sm: 'auto' },
+          gap: 1,
+        }}
       >
-        <SearchField value={searchQuery} onChange={onSearchChange} />
+        <Button
+          variant="contained"
+          size="small"
+          onClick={onAddTarget}
+          sx={{
+            backgroundColor: '#c68645',
+            color: 'common.white',
+            '&:hover': {
+              backgroundColor: '#8b5e34',
+            },
+            textTransform: 'none',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          + Add Target
+        </Button>
         <FilterButton
           onClick={handleFilterClick}
           activeFilterCount={activeFilterCount}
         />
-      </Stack>
+        <SearchField value={searchQuery} onChange={onSearchChange} compact={!isMobile} />
+      </Box>
 
       <Menu
         anchorEl={anchorEl}
@@ -181,6 +218,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
           </Button>
         </MenuItem>
       </Menu>
-    </Box>
+    </>
   );
 };

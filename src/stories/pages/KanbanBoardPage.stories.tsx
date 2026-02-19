@@ -75,8 +75,32 @@ export const PopulatedBoard: Story = {
 };
 
 /**
+ * Mobile viewport (375px) — header stacks vertically, columns stack vertically.
+ * Per spec SC-006 and FR-011: no hamburger menu, all controls visible and stacked.
+ */
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+};
+
+/**
+ * Tablet viewport (768px) — intermediate breakpoint.
+ */
+export const Tablet: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+  },
+};
+
+/**
  * Mobile viewport (375px width).
  * Tests horizontal scroll behavior and responsive column widths.
+ * @deprecated Use Mobile instead (aligned with spec naming)
  */
 export const MobileView: Story = {
   parameters: {

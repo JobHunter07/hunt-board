@@ -26,15 +26,28 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       aria-label={`Filters${activeFilterCount > 0 ? ` (${String(activeFilterCount)} active)` : ''}`}
-      color={activeFilterCount > 0 ? 'primary' : 'default'}
       sx={{
+        color: activeFilterCount > 0 ? '#c68645' : 'action.active',
         transition: 'all 0.2s',
         '&:hover': {
           backgroundColor: 'action.hover',
         },
       }}
     >
-      <Badge badgeContent={activeFilterCount} color="primary">
+      <Badge
+        badgeContent={activeFilterCount}
+        color="default"
+        sx={{
+          '& .MuiBadge-badge': {
+            backgroundColor: activeFilterCount > 0 ? '#c68645' : 'transparent',
+            color: activeFilterCount > 0 ? '#fff' : 'transparent',
+            fontSize: '0.65rem',
+            minWidth: '16px',
+            height: '16px',
+            padding: '0 4px',
+          },
+        }}
+      >
         <FilterListIcon />
       </Badge>
     </IconButton>

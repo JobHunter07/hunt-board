@@ -43,6 +43,10 @@ const meta: Meta<typeof SearchField> = {
       control: 'boolean',
       description: 'Disabled state',
     },
+    compact: {
+      control: 'boolean',
+      description: 'When true, field renders compact (160px) and expands to 300px on focus. Right edge stays pinned.',
+    },
   },
   decorators: [
     (Story) => (
@@ -55,6 +59,75 @@ const meta: Meta<typeof SearchField> = {
 
 export default meta;
 type Story = StoryObj<typeof SearchField>;
+
+/**
+ * Compact mode (desktop header) — resting at 160px, right edge pinned.
+ * Click the field to see it expand to 300px.
+ */
+export const Compact: Story = {
+  args: {
+    value: '',
+    onChange: action('search-changed'),
+    placeholder: 'Search targets...',
+    compact: true,
+    debounceMs: 300,
+    disabled: false,
+  },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end', width: '600px' }}>
+        <Story />
+      </Box>
+    ),
+  ],
+};
+
+/**
+ * Compact mode focused — shows expanded (300px) state with right edge pinned.
+ * Uses play function to simulate focus.
+ */
+export const CompactFocused: Story = {
+  args: {
+    value: '',
+    onChange: action('search-changed'),
+    placeholder: 'Search targets...',
+    compact: true,
+    debounceMs: 300,
+    disabled: false,
+  },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end', width: '600px' }}>
+        <Story />
+      </Box>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const input = canvasElement.querySelector('input');
+    if (input) { input.focus(); }
+  },
+};
+
+/**
+ * Max content — 100-character value tests overflow clipping inside compact field.
+ */
+export const MaxContent: Story = {
+  args: {
+    value: 'A'.repeat(100),
+    onChange: action('search-changed'),
+    placeholder: 'Search targets...',
+    compact: true,
+    debounceMs: 300,
+    disabled: false,
+  },
+  decorators: [
+    (Story) => (
+      <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end', width: '600px' }}>
+        <Story />
+      </Box>
+    ),
+  ],
+};
 
 /**
  * Default empty search field.

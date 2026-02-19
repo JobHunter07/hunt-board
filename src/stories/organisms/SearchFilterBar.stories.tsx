@@ -84,6 +84,27 @@ export default meta;
 type Story = StoryObj<typeof SearchFilterBar>;
 
 /**
+ * WithAddTargetHandler — Add Target button wired to a storybook action.
+ * Click the button to see the action logged in the Actions panel.
+ */
+export const WithAddTargetHandler: Story = {
+  args: {
+    searchQuery: '',
+    onSearchChange: action('search-changed'),
+    selectedPriorities: [] as Priority[],
+    onPrioritiesChange: action('priorities-changed'),
+    selectedTags: [],
+    onTagsChange: action('tags-changed'),
+    hasFollowUp: false,
+    onFollowUpChange: action('follow-up-changed'),
+    availableTags: ['remote', 'urgent', 'referral-ready'],
+    activeFilterCount: 0,
+    onClearAll: action('clear-all'),
+    onAddTarget: action('add-target-clicked'),
+  },
+};
+
+/**
  * Default state with no filters active.
  */
 export const Default: Story = {

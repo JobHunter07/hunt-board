@@ -25,7 +25,7 @@ describe('Kanban Board Integration - Faker Profiles', () => {
 
     render(<App />);
 
-    await user.click(screen.getAllByRole('button', { name: 'Add Target' })[0]);
+    await user.click(screen.getAllByRole('button', { name: 'Add Target' })[0]!);
     await user.type(screen.getByLabelText(/company/i), profile.company);
     await user.type(screen.getByLabelText(/role/i), profile.role);
     await user.click(screen.getByRole('button', { name: 'Create Target' }));
@@ -42,7 +42,7 @@ describe('Kanban Board Integration - Faker Profiles', () => {
 
     render(<App />);
 
-    await user.click(screen.getAllByRole('button', { name: 'Add Target' })[0]);
+    await user.click(screen.getAllByRole('button', { name: 'Add Target' })[0]!);
     await user.type(screen.getByLabelText(/company/i), profile.company);
     await user.type(screen.getByLabelText(/role/i), profile.role);
     await user.click(screen.getByRole('button', { name: 'Create Target' }));
