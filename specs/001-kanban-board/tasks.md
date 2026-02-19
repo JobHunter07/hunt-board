@@ -143,19 +143,19 @@ graph TD
 
 #### Atom Stories
 
-- [ ] T033 [P] [US1] Create PriorityIndicator.stories.tsx in src/stories/atoms/ (6 stories: Low/Medium/High priority, Small/Large size variations, a11y checks)
-- [ ] T034 [P] [US1] Create TagChip.stories.tsx in src/stories/atoms/ (6 stories: Default, Long text, With delete, Without delete, Disabled, Multiple colors, a11y checks)
-- [ ] T035 [P] [US1] Create ColumnHeader.stories.tsx in src/stories/atoms/ (6 stories: Zero count, Low count, High count, Long title, Mobile size, Desktop size, a11y checks)
-- [ ] T036 [P] [US1] Create AddButton.stories.tsx in src/stories/atoms/ (6 stories: Default, Icon-only, Text+Icon, Disabled, Loading, Hover state, a11y checks)
+- [X] T033 [P] [US1] Create PriorityIndicator.stories.tsx in src/stories/atoms/ (6 stories: Low/Medium/High priority, Small/Large size variations, a11y checks)
+- [X] T034 [P] [US1] Create TagChip.stories.tsx in src/stories/atoms/ (6 stories: Default, Long text, With delete, Without delete, Disabled, Multiple colors, a11y checks)
+- [X] T035 [P] [US1] Create ColumnHeader.stories.tsx in src/stories/atoms/ (6 stories: Zero count, Low count, High count, Long title, Mobile size, Desktop size, a11y checks)
+- [X] T036 [P] [US1] Create AddButton.stories.tsx in src/stories/atoms/ (6 stories: Default, Icon-only, Text+Icon, Disabled, Loading, Hover state, a11y checks)
 
 #### Organism Stories
 
-- [ ] T037 [P] [US1] Create JobTargetCard.stories.tsx in src/stories/organisms/ (6 stories: Default, Empty role, Many tags, High priority, No tags, Max content, a11y checks, interactive controls for all props)
-- [ ] T038 [P] [US1] Create KanbanColumn.stories.tsx in src/stories/organisms/ (6 stories: Empty column, 1 card, 5 cards, 20+ cards scrolling, Drag-over state, Responsive widths, a11y checks)
+- [X] T037 [P] [US1] Create JobTargetCard.stories.tsx in src/stories/organisms/ (6 stories: Default, Empty role, Many tags, High priority, No tags, Max content, a11y checks, interactive controls for all props)
+- [X] T038 [P] [US1] Create KanbanColumn.stories.tsx in src/stories/organisms/ (6 stories: Empty column, 1 card, 5 cards, 20+ cards scrolling, Drag-over state, Responsive widths, a11y checks)
 
 #### Page Stories
 
-- [ ] T039 [US1] Create KanbanBoardPage.stories.tsx in src/stories/pages/ (6 stories: Empty board, Populated board, All columns with cards, Mobile view, Tablet view, Desktop view, a11y checks, Chromatic visual regression setup)
+- [X] T039 [US1] Create KanbanBoardPage.stories.tsx in src/stories/pages/ (6 stories: Empty board, Populated board, All columns with cards, Mobile view, Tablet view, Desktop view, a11y checks, Chromatic visual regression setup)
 
 **Checkpoint**: ✅ User Story 1 complete - Board displays 9 columns with responsive layout, cards show priority/tags, drag-drop foundation ready
 
@@ -173,22 +173,22 @@ graph TD
 
 #### Organisms
 
-- [ ] T040 [US2] Create AddTargetModal organism in src/features/kanban-board/components/organisms/AddTargetModal.tsx (Dialog with Stack of TextFields for Company/Role/Reason/Source, Select for Priority/Column, Tag input with Chip display, Create/Cancel Buttons, React Hook Form + Zod validation, responsive: max-width 600px desktop, full-screen mobile)
+- [X] T040 [US2] Create AddTargetModal organism in src/features/kanban-board/components/organisms/AddTargetModal.tsx (Dialog with Stack of TextFields for Company/Role/Reason/Source, Select for Priority/Column, Tag input with Chip display, Create/Cancel Buttons, React Hook Form + Zod validation, responsive: max-width 600px desktop, full-screen mobile)
 
 #### Page Integration
 
-- [ ] T041 [US2] Enhance KanbanBoardPage with AddTargetModal integration (add modal state, pass onAddClick handler to KanbanColumns, manage modal open/close, handle card creation via useBoardState)
-- [ ] T042 [US2] Implement drag-and-drop card movement in useDragAndDrop.ts hook (handleDragEnd callback, update columnId in JobTarget, persist to localStorage via useBoardState, animate with Material UI elevation changes)
-- [ ] T043 [US2] Add card creation logic to useBoardState.ts (createJobTarget helper, append to jobTargets array, save to localStorage with debounce)
+- [X] T041 [US2] Enhance KanbanBoardPage with AddTargetModal integration (add modal state, pass onAddClick handler to KanbanColumns, manage modal open/close, handle card creation via useBoardState)
+- [X] T042 [US2] Implement drag-and-drop card movement in useDragAndDrop.ts hook (handleDragEnd callback, update columnId in JobTarget, persist to localStorage via useBoardState, animate with Material UI elevation changes)
+- [X] T043 [US2] Add card creation logic to useBoardState.ts (createJobTarget helper, append to jobTargets array, save to localStorage with debounce)
 
 ### Storybook Stories for User Story 2 📖
 
-- [ ] T044 [P] [US2] Create AddTargetModal.stories.tsx in src/stories/organisms/ (6 stories: Empty form, Pre-filled column, Validation errors, Form submitting, Long company name, All fields filled, a11y checks, interactive controls)
+- [X] T044 [P] [US2] Create AddTargetModal.stories.tsx in src/stories/organisms/ (6 stories: Empty form, Pre-filled column, Validation errors, Form submitting, Long company name, All fields filled, a11y checks, interactive controls)
 
 #### Integration Stories
 
-- [ ] T045 [US2] Add "Create Card via Modal" story to KanbanBoardPage.stories.tsx (interactive story with AddTargetModal open, demonstrates full create workflow)
-- [ ] T046 [US2] Add "Drag Card Between Columns" story to KanbanBoardPage.stories.tsx (interactive story with play function demonstrating drag operation)
+- [X] T045 [US2] Add "Create Card via Modal" story to KanbanBoardPage.stories.tsx (interactive story with AddTargetModal open, demonstrates full create workflow)
+- [X] T046 [US2] Add "Drag Card Between Columns" story to KanbanBoardPage.stories.tsx (interactive story with play function demonstrating drag operation)
 
 **Checkpoint**: ✅ User Story 2 complete - Users can create new targets and move cards between columns with persistence
 

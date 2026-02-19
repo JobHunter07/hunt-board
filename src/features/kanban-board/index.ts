@@ -24,6 +24,9 @@ export type { KanbanColumnProps } from './components/organisms/KanbanColumn';
 export { JobTargetCard } from './components/organisms/JobTargetCard';
 export type { JobTargetCardProps } from './components/organisms/JobTargetCard';
 
+export { AddTargetModal } from './components/organisms/AddTargetModal';
+export type { AddTargetModalProps, AddTargetFormData } from './components/organisms/AddTargetModal';
+
 // Components - Pages
 export { KanbanBoardPage } from './components/pages/KanbanBoardPage';
 

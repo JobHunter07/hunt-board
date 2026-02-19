@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 import { KanbanColumn } from '../organisms/KanbanColumn';
+import { AddTargetModal, type AddTargetFormData } from '../organisms/AddTargetModal';
 import { useBoardState } from '../../hooks/useBoardState';
 import { useDragAndDrop } from '../../hooks/useDragAndDrop';
 import type { ColumnId } from '../../types';
@@ -9,12 +10,17 @@ import type { ColumnId } from '../../types';
 export function KanbanBoardPage() {
   const { boardState, addJobTarget, deleteJobTarget, moveJobTarget, getTargetsByColumn } = useBoardState();
   const [, setEditingTargetId] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedColumnId, setSelectedColumnId] = useState<ColumnId>('targets-identified');
 
   const handleAddTarget = (columnId: ColumnId) => {
-    const company = prompt('Enter company name:');
-    if (company) {
-      addJobTarget(company, columnId);
-    }
+    setSelectedColumnId(columnId);
+    setModalOpen(true);
+  };
+
+  const handleModalSubmit = (data: AddTargetFormData) => {
+    addJobTarget(data.company, data.columnId);
+    setModalOpen(false);
   };
 
   const handleEditTarget = (targetId: string) => {
@@ -78,6 +84,13 @@ export function KanbanBoardPage() {
           ))}
         </Box>
       </DndContext>
+
+      <AddTargetModal
+        open={modalOpen}
+        onClose={() => { setModalOpen(false); }}
+        onSubmit={handleModalSubmit}
+        defaultColumnId={selectedColumnId}
+      />
     </Box>
   );
 }
