@@ -18,6 +18,8 @@ export function ColumnHeader({ title, count, color }: ColumnHeaderProps) {
         pb: 1,
         borderBottom: color ? `3px solid ${color}` : '3px solid #E0E0E0'
       }}
+      role="heading"
+      aria-level={2}
     >
       <Typography
         variant="h6"
@@ -33,6 +35,7 @@ export function ColumnHeader({ title, count, color }: ColumnHeaderProps) {
       <Chip
         label={count}
         size="small"
+        aria-label={`${String(count)} targets in this column`}
         sx={{
           backgroundColor: color ?? '#E0E0E0',
           color: '#FFFFFF',

@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { DndContext } from '@dnd-kit/core';
 import { KanbanColumn } from '../organisms/KanbanColumn';
 import { AddTargetModal, type AddTargetFormData } from '../organisms/AddTargetModal';
@@ -11,6 +11,14 @@ import { useCardFilters } from '../../hooks/useCardFilters';
 import type { ColumnId } from '../../types';
 import type { JobTarget } from '../../types';
 
+/**
+ * KanbanBoardPage - Main Hunt Board interface
+ * 
+ * **Performance Optimizations (T066)**:
+ * - All event handlers wrapped in useCallback
+ * - Prevents unnecessary re-renders of child components
+ * - Stable function references across renders
+ */
 export function KanbanBoardPage() {
   const { boardState, addJobTarget, updateJobTarget, deleteJobTarget, moveJobTarget } = useBoardState();
   const [selectedTarget, setSelectedTarget] = useState<JobTarget | null>(null);
@@ -42,62 +50,62 @@ export function KanbanBoardPage() {
     return Array.from(allTags).sort();
   }, [boardState.jobTargets]);
 
-  const handleAddTarget = (columnId: ColumnId) => {
+  const handleAddTarget = useCallback((columnId: ColumnId) => {
     setSelectedColumnId(columnId);
     setModalOpen(true);
-  };
+  }, []);
 
-  const handleModalSubmit = (data: AddTargetFormData) => {
+  const handleModalSubmit = useCallback((data: AddTargetFormData) => {
     addJobTarget(data.company, data.columnId);
     setModalOpen(false);
-  };
+  }, [addJobTarget]);
 
-  const handleCardClick = (target: JobTarget) => {
+  const handleCardClick = useCallback((target: JobTarget) => {
     setSelectedTarget(target);
     setDetailModalOpen(true);
-  };
+  }, []);
 
-  const handleEditTarget = (targetId: string) => {
+  const handleEditTarget = useCallback((targetId: string) => {
     const target = (boardState.jobTargets ?? []).find(t => t.id === targetId);
     if (target) {
       handleCardClick(target);
     }
-  };
+  }, [boardState.jobTargets, handleCardClick]);
 
-  const handleSaveTarget = (updates: Partial<JobTarget>) => {
+  const handleSaveTarget = useCallback((updates: Partial<JobTarget>) => {
     if (selectedTarget) {
       updateJobTarget(selectedTarget.id, updates);
       setDetailModalOpen(false);
       setSelectedTarget(null);
     }
-  };
+  }, [selectedTarget, updateJobTarget]);
 
-  const handleDeleteTarget = (targetId: string) => {
+  const handleDeleteTarget = useCallback((targetId: string) => {
     if (confirm('Delete this job target?')) {
       deleteJobTarget(targetId);
     }
-  };
+  }, [deleteJobTarget]);
 
-  const handleDeleteFromModal = () => {
+  const handleDeleteFromModal = useCallback(() => {
     if (selectedTarget) {
       deleteJobTarget(selectedTarget.id);
       setDetailModalOpen(false);
       setSelectedTarget(null);
     }
-  };
+  }, [selectedTarget, deleteJobTarget]);
 
-  const handleDragEnd = (targetId: string, newColumnId: ColumnId) => {
+  const handleDragEnd = useCallback((targetId: string, newColumnId: ColumnId) => {
     moveJobTarget(targetId, newColumnId);
-  };
+  }, [moveJobTarget]);
 
   const { sensors, handleDragEnd: onDragEnd } = useDragAndDrop({
     onDragEnd: handleDragEnd
   });
 
-  // Get filtered targets by column
-  const getFilteredTargetsByColumn = (columnId: ColumnId) => {
+  // Get filtered targets by column (memoized)
+  const getFilteredTargetsByColumn = useCallback((columnId: ColumnId) => {
     return filteredCards.filter((target) => target.columnId === columnId);
-  };
+  }, [filteredCards]);
 
   return (
     <Box
@@ -126,12 +134,21 @@ export function KanbanBoardPage() {
         onClearAll={clearAllFilters}
       />
 
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography 
+        variant="body2" 
+        color="text.secondary" 
+        sx={{ mb: 2 }}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
         Showing {filteredCards.length} of {(boardState.jobTargets ?? []).length} targets
       </Typography>
 
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         <Box
+          role="region"
+          aria-label="Kanban board columns"
           sx={{
             display: 'flex',
             gap: 2,

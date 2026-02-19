@@ -1,4 +1,4 @@
-import { Paper, Stack } from '@mui/material';
+import { Paper, Stack, memo } from '@mui/material';
 import { useDroppable } from '@dnd-kit/core';
 import { ColumnHeader } from '../atoms/ColumnHeader';
 import { AddButton } from '../atoms/AddButton';
@@ -14,7 +14,48 @@ export type KanbanColumnProps = {
   onDeleteTarget: (targetId: string) => void;
 }
 
-export function KanbanColumn({
+/**
+ * Custom comparison function for React.memo
+ * Only re-render if column data or jobTargets change
+ * 
+ * **Performance Optimization (T065)**:
+ * - Prevents re-renders when other columns update
+ * - Checks column.id and jobTargets array reference
+ * - Deep equality check on jobTarget IDs and updatedAt timestamps
+ * - Callback props should be memoized in parent
+ */
+function arePropsEqual(prevProps: KanbanColumnProps, nextProps: KanbanColumnProps): boolean {
+  // Column ID changed?
+  if (prevProps.column.id !== nextProps.column.id) {
+    return false;
+  }
+
+  // Number of targets changed?
+  if (prevProps.jobTargets.length !== nextProps.jobTargets.length) {
+    return false;
+  }
+
+  // Check if any target changed (by ID or updatedAt)
+  for (let i = 0; i < prevProps.jobTargets.length; i++) {
+    const prevTarget = prevProps.jobTargets[i];
+    const nextTarget = nextProps.jobTargets[i];
+    
+    if (!prevTarget || !nextTarget) {
+      return false;
+    }
+
+    if (
+      prevTarget.id !== nextTarget.id ||
+      prevTarget.updatedAt !== nextTarget.updatedAt
+    ) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const KanbanColumnComponent = ({
   column,
   jobTargets,
   onAddTarget,
@@ -29,6 +70,8 @@ export function KanbanColumn({
   return (
     <Paper
       elevation={1}
+      role="region"
+      aria-label={`${column.title} column`}
       sx={{
         width: { xs: '100%', sm: '280px', md: '320px' },
         minWidth: { xs: '100%', sm: '280px', md: '320px' },
@@ -46,6 +89,8 @@ export function KanbanColumn({
       
       <Stack
         ref={setNodeRef}
+        role="list"
+        aria-label={`Job targets in ${column.title}`}
         spacing={2}
         sx={{
           flex: 1,
@@ -73,11 +118,23 @@ export function KanbanColumn({
             cardProps.onClick = () => { onCardClick(target); };
           }
           
-          return <JobTargetCard key={target.id} {...cardProps} />;
+          return (
+            <div key={target.id} role=\"listitem\">\n              <JobTargetCard {...cardProps} />\n            </div>\n          );
         })}
       </Stack>
       
       <AddButton onClick={onAddTarget} />
     </Paper>
   );
-}
+};
+
+/**
+ * KanbanColumn with React.memo optimization
+ * 
+ * **Constitutional Compliance (Section II)**:
+ * - Organism-level component
+ * - Material UI only
+ * - Droppable area via @dnd-kit
+ * - Memoized for performance
+ */
+export const KanbanColumn = memo(KanbanColumnComponent, arePropsEqual);

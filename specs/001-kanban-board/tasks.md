@@ -254,10 +254,10 @@ graph TD
 
 ### Storybook Stories for User Story 4 📖
 
-- [ ] T060 [P] [US4] Create SearchField.stories.tsx in src/stories/atoms/ (6 stories: Empty, With text, Loading state, With clear button, Disabled, Mobile width, a11y checks)
-- [ ] T061 [P] [US4] Create FilterButton.stories.tsx in src/stories/atoms/ (6 stories: Inactive, Active with 0 filters, Active with 3 filters, Disabled, Mobile size, Hover state, a11y checks)
-- [ ] T062 [P] [US4] Create SearchFilterBar.stories.tsx in src/stories/organisms/ (6 stories: No filters active, Search active, Filters active, Menu open, Mobile layout, Desktop layout, a11y checks, interactive controls)
-- [ ] T063 [US4] Add "Search and Filter" story to KanbanBoardPage.stories.tsx (interactive story with search + filter active, demonstrates filtered results)
+- [X] T060 [P] [US4] Create SearchField.stories.tsx in src/stories/atoms/ (6 stories: Empty, With text, Loading state, With clear button, Disabled, Mobile width, a11y checks)
+- [X] T061 [P] [US4] Create FilterButton.stories.tsx in src/stories/atoms/ (6 stories: Inactive, Active with 0 filters, Active with 3 filters, Disabled, Mobile size, Hover state, a11y checks)
+- [X] T062 [P] [US4] Create SearchFilterBar.stories.tsx in src/stories/organisms/ (6 stories: No filters active, Search active, Filters active, Menu open, Mobile layout, Desktop layout, a11y checks, interactive controls)
+- [X] T063 [US4] Add "Search and Filter" story to KanbanBoardPage.stories.tsx (interactive story with search + filter active, demonstrates filtered results)
 
 **Checkpoint**: ✅ User Story 4 complete - Users can search and filter cards by multiple criteria with real-time updates
 
@@ -271,22 +271,29 @@ graph TD
 
 ### Performance Optimization
 
-- [ ] T064 [P] Optimize JobTargetCard with React.memo (custom comparison on card.id and card.updatedAt)
-- [ ] T065 [P] Optimize KanbanColumn with React.memo (prevent re-renders on unrelated column updates)
-- [ ] T066 [P] Add useCallback to all event handlers in KanbanBoardPage (prevent unnecessary child re-renders)
-- [ ] T067 [P] Add useMemo to expensive computations (DEFAULT_COLUMNS mapping, filtered cards calculation)
-- [ ] T068 Implement debounced localStorage writes in useLocalStorage.ts (500ms debounce, prevent excessive writes during drag operations)
+- [X] T064 [P] Optimize JobTargetCard with React.memo (custom comparison on card.id and card.updatedAt)
+- [X] T065 [P] Optimize KanbanColumn with React.memo (prevent re-renders on unrelated column updates)
+- [X] T066 [P] Add useCallback to all event handlers in KanbanBoardPage (prevent unnecessary child re-renders)
+- [X] T067 [P] Add useMemo to expensive computations (DEFAULT_COLUMNS mapping, filtered cards calculation)
+- [X] T068 Implement debounced localStorage writes in useLocalStorage.ts (500ms debounce, prevent excessive writes during drag operations)
 
 ### Accessibility Enhancements
 
-- [ ] T069 [P] Add comprehensive ARIA labels to all interactive elements (cards, buttons, columns per SR-001 to SR-009 requirements)
-- [ ] T070 [P] Implement keyboard navigation for drag-and-drop (Arrow keys + Space/Enter per TAB-002 requirement using @dnd-kit keyboard sensor)
-- [ ] T071 [P] Add focus trap to modals (AddTargetModal, CardDetailModal per TAB-004 requirement)
-- [ ] T072 [P] Verify all text meets 4.5:1 contrast ratio (run axe-core tests via @storybook/addon-a11y, fix violations per VISUAL-001)
+- [X] T069 [P] Add comprehensive ARIA labels to all interactive elements (cards, buttons, columns per SR-001 to SR-009 requirements)
+- [X] T070 [P] Implement keyboard navigation for drag-and-drop (Arrow keys + Space/Enter per TAB-002 requirement using @dnd-kit keyboard sensor)
+- [X] T071 [P] Add focus trap to modals (AddTargetModal, CardDetailModal per TAB-004 requirement)
+- [X] T072 [P] Verify all text meets 4.5:1 contrast ratio (run axe-core tests via @storybook/addon-a11y, fix violations per VISUAL-001)
 
 ### Documentation & Final Touches
 
-- [ ] T073 Create README.md for kanban-board feature in src/features/kanban-board/ (usage examples, API documentation, development guide)
+- [X] T073 Create README.md for kanban-board feature in src/features/kanban-board/ (usage examples, API documentation, development guide)
+
+### Bonus: Playwright E2E Testing
+
+- [X] Setup Playwright testing infrastructure
+- [X] Create E2E tests for critical user workflows (add target, drag-and-drop, search/filter)
+- [X] Configure cross-browser testing (Chrome, Firefox, Safari)
+- [X] Add accessibility testing scenarios
 
 **Checkpoint**: ✅ All user stories complete, optimized, accessible, and production-ready
 

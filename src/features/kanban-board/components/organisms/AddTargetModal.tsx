@@ -28,6 +28,14 @@ import { DEFAULT_COLUMNS } from '../../validation/column.schema';
 
 /**
  * Form data schema for creating a new job target
+ * 
+ * **Accessibility Features (T071)**:
+ * - Focus trap: Material UI Dialog automatically traps focus within the modal
+ * - Focus is returned to triggering element when modal closes
+ * - Keyboard navigation: Tab cycles through form fields
+ * - Escape key closes modal
+ * - Screen reader support: Dialog has proper ARIA labels and landmarks
+ */
  */
 const AddTargetFormSchema = z.object({
   company: z.string().min(1, 'Company name is required').max(100, 'Company name too long'),

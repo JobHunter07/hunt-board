@@ -17,6 +17,7 @@ export function AddButton({ onClick, disabled = false, variant = 'text-icon' }: 
       variant="outlined"
       startIcon={<AddIcon />}
       fullWidth
+      aria-label={isIconOnly ? 'Add new target' : undefined}
       sx={{
         borderStyle: 'dashed',
         borderWidth: 2,

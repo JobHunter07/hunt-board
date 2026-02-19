@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Box, Stack, IconButton, Chip } from '@mui/material';
+import { Card, CardContent, Typography, Box, Stack, IconButton, Chip, memo } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDraggable } from '@dnd-kit/core';
@@ -14,7 +14,23 @@ export type JobTargetCardProps = {
   onDelete: () => void;
 }
 
-export function JobTargetCard({ jobTarget, onClick, onEdit, onDelete }: JobTargetCardProps) {
+/**
+ * Custom comparison function for React.memo
+ * Only re-render if card ID or updatedAt timestamp changes
+ * 
+ * **Performance Optimization (T064)**:
+ * - Prevents unnecessary re-renders when other cards update
+ * - Compares only essential props: jobTarget.id and jobTarget.updatedAt
+ * - Callback props (onClick, onEdit, onDelete) should be memoized in parent
+ */
+function arePropsEqual(prevProps: JobTargetCardProps, nextProps: JobTargetCardProps): boolean {
+  return (
+    prevProps.jobTarget.id === nextProps.jobTarget.id &&
+    prevProps.jobTarget.updatedAt === nextProps.jobTarget.updatedAt
+  );
+}
+
+const JobTargetCardComponent = ({ jobTarget, onClick, onEdit, onDelete }: JobTargetCardProps) => {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: jobTarget.id
   });
@@ -120,4 +136,15 @@ export function JobTargetCard({ jobTarget, onClick, onEdit, onDelete }: JobTarge
       </CardContent>
     </Card>
   );
-}
+};
+
+/**
+ * JobTargetCard with React.memo optimization
+ * 
+ * **Constitutional Compliance (Section II)**:
+ * - Organism-level component
+ * - Material UI only
+ * - Draggable via @dnd-kit
+ * - Memoized for performance
+ */
+export const JobTargetCard = memo(JobTargetCardComponent, arePropsEqual);

@@ -1,4 +1,17 @@
 // src/features/kanban-board/components/organisms/CardDetailModal.tsx
+
+/**
+ * CardDetailModal organism - Detailed view and editing for job targets
+ * 
+ * **Accessibility Features (T071)**:
+ * - Focus trap: Material UI Dialog automatically traps focus within the modal
+ * - Focus is returned to triggering element when modal closes
+ * - Keyboard navigation: Tab cycles through form fields and tabs
+ * - Escape key closes modal
+ * - Screen reader support: Dialog has proper ARIA labels, tabs are accessible
+ * - Tab panel navigation: Arrow keys move between tabs
+ */
+
 import React, { useState } from 'react';
 import {
   Dialog,
