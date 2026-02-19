@@ -1,4 +1,5 @@
-import { Paper, Stack, memo } from '@mui/material';
+import { memo } from 'react';
+import { Paper, Stack } from '@mui/material';
 import { useDroppable } from '@dnd-kit/core';
 import { ColumnHeader } from '../atoms/ColumnHeader';
 import { AddButton } from '../atoms/AddButton';
@@ -62,7 +63,7 @@ const KanbanColumnComponent = ({
   onCardClick,
   onEditTarget,
   onDeleteTarget
-}: KanbanColumnProps) {
+}: KanbanColumnProps) => {
   const { setNodeRef } = useDroppable({
     id: column.id
   });
@@ -119,7 +120,10 @@ const KanbanColumnComponent = ({
           }
           
           return (
-            <div key={target.id} role=\"listitem\">\n              <JobTargetCard {...cardProps} />\n            </div>\n          );
+            <div key={target.id} role="listitem">
+              <JobTargetCard {...cardProps} />
+            </div>
+          );
         })}
       </Stack>
       

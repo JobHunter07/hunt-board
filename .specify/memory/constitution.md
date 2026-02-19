@@ -1,11 +1,57 @@
 <!--
 ================================================================================
 CONSTITUTION SYNC IMPACT REPORT
-Version: Template → 0.0.1
-Date: 2026-02-18
+Version: 0.1.0 → 0.2.0
+Date: 2026-02-19
 ================================================================================
 
 VERSION CHANGE:
+  Old: 0.1.0 (Pre-Release)
+  New: 0.2.0 (Pre-Release)
+  Bump Rationale: Added Section XII - Dependency Management & Version Currency requirements
+
+MODIFIED SECTIONS (v0.2.0):
+  - NEW Section XII: Dependency Management & Version Currency
+    * Major dependencies must use latest stable versions
+    * Dependencies must be upgraded within 30 days of major releases
+    * Security patches applied immediately
+    * User stories required for major version upgrades
+    * Dependency audit required monthly
+
+IMPACT ASSESSMENT (v0.2.0):
+  - BREAKING: No
+  - REQUIRES ACTION: Yes
+    * Immediate audit of all dependencies for latest versions
+    * Create user stories for outdated major dependencies
+    * Establish monthly dependency review process
+  - TEMPLATES AFFECTED:
+    * spec-template.md: Add dependency version verification section
+    * tasks-template.md: Add dependency upgrade tasks category
+
+PREVIOUS CHANGES (v0.1.0 - 2026-02-19):
+  Old: 0.0.1 (Pre-Release)
+  New: 0.1.0 (Pre-Release)
+  Bump Rationale: Added Acceptance Testing & Playwright Screenshot Documentation requirements to Section VII
+
+MODIFIED SECTIONS (v0.1.0):
+  - Section VII: Testing Requirements
+    * Added "Acceptance Testing & Documentation" subsection
+    * Mandatory Playwright screenshot documentation for all E2E tests
+    * User story testing must include visual proof of acceptance criteria
+    * Test evidence storage and linking requirements
+    * Enhanced rationale to include visual evidence for stakeholders
+
+IMPACT ASSESSMENT (v0.1.0):
+  - BREAKING: No
+  - REQUIRES ACTION: Yes
+    * All future E2E tests must capture and store screenshots
+    * Existing acceptance test documentation should be updated with screenshot evidence
+    * PR templates should include screenshot evidence checklist
+  - TEMPLATES AFFECTED:
+    * tasks-template.md: Add screenshot capture tasks for E2E tests
+    * spec-template.md: Add acceptance test documentation section requirement
+
+PREVIOUS CHANGES (v0.0.1 - 2026-02-18):
   Old: Template placeholders
   New: 0.0.1 (Pre-Release)
   Bump Rationale: Initial formalized constitution for Hunt Board NPM Library
@@ -59,21 +105,29 @@ TEMPLATES REQUIRING UPDATES:
      - Emphasize 80% coverage minimum from Section VII
      - Include Material UI implementation tasks
      - Organize by vertical slices (align with Section III)
+     - Add task category: "Acceptance Test Documentation" (NEW in v0.1.0)
+       * Playwright screenshot capture tasks
+       * Screenshot evidence linking tasks
+       * Acceptance criteria validation tasks
 
 FOLLOW-UP TODOS:
   1. Update plan-template.md with Hunt Board-specific constitution checks
   2. Update spec-template.md with Storybook and accessibility sections
   3. Update tasks-template.md with Storybook story tasks as standard
   4. Create quick reference guide for three-level atomic design constraint
-  5. No placeholders remaining - constitution is complete
+  5. Update spec-template.md to include "Acceptance Test Documentation" section (NEW in v0.1.0)
+  6. Update tasks-template.md to include Playwright screenshot tasks (NEW in v0.1.0)
+  7. Create PR template checklist for screenshot evidence (NEW in v0.1.0)
 
 FILES FLAGGED FOR MANUAL FOLLOW-UP:
   - All three template files require updates to align with constitution
   - Updates should be made before next feature specification
+  - spec-template.md: Add acceptance test documentation requirements (v0.1.0)
+  - tasks-template.md: Add screenshot capture and evidence tasks (v0.1.0)
 
 VALIDATION STATUS:
   ✅ No unexplained bracket tokens remaining
-  ✅ Version line matches report (0.0.1)
+  ✅ Version line matches report (0.1.0)
   ✅ Dates in ISO format (YYYY-MM-DD)
   ✅ Principles are declarative and testable
   ✅ Pre-release versioning policy defined in Section IX
@@ -83,10 +137,10 @@ VALIDATION STATUS:
 
 # JobHunter07 — Hunt Board NPM Library
 ## Engineering Constitution
-**Version:** 0.0.1
+**Version:** 0.2.0
 **Status:** Pre-Release
 **Ratified:** 2026-02-12
-**Last Amended:** 2026-02-12
+**Last Amended:** 2026-02-19
 
 This constitution governs all engineering work for the Hunt Board NPM Library and any related modules.
 It supersedes all other conventions, defaults, or framework opinions.
@@ -226,7 +280,23 @@ Every component MUST have a Storybook story.
 - Minimum **80%** coverage for logic (excluding types/config)
 - **100%** coverage for security-critical paths (auth, billing, data access)
 
-**Rationale:** Confidence in changes. Fast feedback loops. Living documentation through tests.
+### Acceptance Testing & Documentation
+- **User Story Testing:** Every user story MUST have corresponding acceptance tests.
+- **Playwright Screenshot Documentation:** All E2E and critical integration tests MUST include:
+  - Screenshots of successful test execution
+  - Screenshots of key user interaction states
+  - Screenshots of error handling and edge cases
+  - Visual proof that acceptance criteria are met
+- **Test Evidence Storage:** Screenshots stored in test artifacts and linked in:
+  - Acceptance test documentation
+  - Feature specification test results section
+  - Pull request descriptions
+- **Acceptance Criteria Validation:** Every acceptance criterion must be verifiable through:
+  - Automated test results
+  - Visual screenshot evidence
+  - Both combined in acceptance test documentation
+
+**Rationale:** Confidence in changes. Fast feedback loops. Living documentation through tests. Visual evidence provides non-technical stakeholders proof of completion.
 
 ---
 
@@ -299,6 +369,56 @@ Every component MUST have a Storybook story.
 ### Independence
 - The Hunt Board must be fully functional as a standalone module.
 - app.jobhunter07.com acts as the **glue**, not the source of truth.
+
+---
+
+# XII. Dependency Management & Version Currency
+
+**All dependencies MUST be kept current to ensure security, performance, and compatibility.**
+
+### Version Requirements
+- **Major Dependencies** (React, Material UI, Storybook, Testing Frameworks):
+  - MUST use latest stable version at project initialization
+  - MUST be upgraded within 30 days of new major version release
+  - Upgrades require a user story specification before implementation
+- **Minor/Patch Updates**:
+  - Applied during regular maintenance windows
+  - Security patches applied immediately (within 48 hours)
+- **Deprecated Dependencies**:
+  - No deprecated packages permitted
+  - If a dependency is deprecated, migration plan required within 14 days
+
+### Upgrade Process
+- **For Major Version Upgrades** (e.g., Storybook 7 → 10):
+  1. Create user story specification documenting:
+     - Current version and target version
+     - Breaking changes and migration requirements
+     - Impact assessment on existing code
+     - Rollback plan
+     - Testing strategy
+  2. Specification reviewed and approved
+  3. Upgrade implemented per specification
+  4. All tests (unit, integration, E2E) pass
+  5. Storybook stories verified
+  6. Acceptance test screenshots captured
+  7. Documentation updated
+
+### Dependency Audits
+- **Monthly Audit Required**:
+  - Check all dependencies for available updates
+  - Review security advisories
+  - Prioritize and schedule upgrades
+- **Tools**:
+  - `npm outdated` for version checks
+  - `npm audit` for security vulnerabilities
+  - Dependabot or similar for automated alerts
+
+### Rationale
+- **Security**: Latest versions contain critical security patches
+- **Performance**: New versions often include performance improvements
+- **Compatibility**: Staying current prevents accumulation of breaking changes
+- **Support**: Latest versions receive active maintenance and community support
+- **Features**: Access to new capabilities and improvements
 
 ---
 

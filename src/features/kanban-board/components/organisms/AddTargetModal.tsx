@@ -36,7 +36,6 @@ import { DEFAULT_COLUMNS } from '../../validation/column.schema';
  * - Escape key closes modal
  * - Screen reader support: Dialog has proper ARIA labels and landmarks
  */
- */
 const AddTargetFormSchema = z.object({
   company: z.string().min(1, 'Company name is required').max(100, 'Company name too long'),
   role: z.string().max(100, 'Role too long').optional(),

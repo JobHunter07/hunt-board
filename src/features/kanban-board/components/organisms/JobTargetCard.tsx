@@ -1,4 +1,5 @@
-import { Card, CardContent, Typography, Box, Stack, IconButton, Chip, memo } from '@mui/material';
+import { memo } from 'react';
+import { Card, CardContent, Typography, Box, Stack, IconButton, Chip } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDraggable } from '@dnd-kit/core';
