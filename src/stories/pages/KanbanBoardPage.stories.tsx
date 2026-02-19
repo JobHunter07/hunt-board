@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { KanbanBoardPage } from '@/features/kanban-board/components/pages/KanbanBoardPage';
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 /**
  * KanbanBoardPage is the main Hunt Board interface with 9 columns and drag-and-drop.

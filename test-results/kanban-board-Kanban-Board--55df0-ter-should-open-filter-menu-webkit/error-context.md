@@ -1,0 +1,153 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - heading [level=1] [ref=e4]: Hunt Board
+    - generic [ref=e6]:
+      - generic [ref=e8]:
+        - img [ref=e10]
+        - textbox [ref=e12]:
+          - /placeholder: Search targets...
+        - group
+      - button [ref=e13] [cursor=pointer]:
+        - img [ref=e15]
+    - status [ref=e17]: Showing 0 of 0 targets
+    - region [ref=e18]:
+      - region [ref=e19]:
+        - heading [level=2] [ref=e20]:
+          - heading [level=2] [ref=e21]: Targets Identified
+          - generic [ref=e23]: "0"
+        - list [ref=e24]
+        - button [ref=e25] [cursor=pointer]:
+          - img [ref=e27]
+          - text: Add Target
+      - region [ref=e29]:
+        - heading [level=2] [ref=e30]:
+          - heading [level=2] [ref=e31]: Intel Gathering
+          - generic [ref=e33]: "0"
+        - list [ref=e34]
+        - button [ref=e35] [cursor=pointer]:
+          - img [ref=e37]
+          - text: Add Target
+      - region [ref=e39]:
+        - heading [level=2] [ref=e40]:
+          - heading [level=2] [ref=e41]: Warm-Up Phase
+          - generic [ref=e43]: "0"
+        - list [ref=e44]
+        - button [ref=e45] [cursor=pointer]:
+          - img [ref=e47]
+          - text: Add Target
+      - region [ref=e49]:
+        - heading [level=2] [ref=e50]:
+          - heading [level=2] [ref=e51]: Outreach Initiated
+          - generic [ref=e53]: "0"
+        - list [ref=e54]
+        - button [ref=e55] [cursor=pointer]:
+          - img [ref=e57]
+          - text: Add Target
+      - region [ref=e59]:
+        - heading [level=2] [ref=e60]:
+          - heading [level=2] [ref=e61]: Follow-Up Required
+          - generic [ref=e63]: "0"
+        - list [ref=e64]
+        - button [ref=e65] [cursor=pointer]:
+          - img [ref=e67]
+          - text: Add Target
+      - region [ref=e69]:
+        - heading [level=2] [ref=e70]:
+          - heading [level=2] [ref=e71]: Conversation Started
+          - generic [ref=e73]: "0"
+        - list [ref=e74]
+        - button [ref=e75] [cursor=pointer]:
+          - img [ref=e77]
+          - text: Add Target
+      - region [ref=e79]:
+        - heading [level=2] [ref=e80]:
+          - heading [level=2] [ref=e81]: Interview Pipeline
+          - generic [ref=e83]: "0"
+        - list [ref=e84]
+        - button [ref=e85] [cursor=pointer]:
+          - img [ref=e87]
+          - text: Add Target
+      - region [ref=e89]:
+        - heading [level=2] [ref=e90]:
+          - heading [level=2] [ref=e91]: Stalled / Cold
+          - generic [ref=e93]: "0"
+        - list [ref=e94]
+        - button [ref=e95] [cursor=pointer]:
+          - img [ref=e97]
+          - text: Add Target
+      - region [ref=e99]:
+        - heading [level=2] [ref=e100]:
+          - heading [level=2] [ref=e101]: Offer / Success
+          - generic [ref=e103]: "0"
+        - list [ref=e104]
+        - button [ref=e105] [cursor=pointer]:
+          - img [ref=e107]
+          - text: Add Target
+    - status [ref=e109]
+  - dialog "Add New Target close" [ref=e112]:
+    - heading "Add New Target close" [level=2] [ref=e113]:
+      - text: Add New Target
+      - button "close" [ref=e114] [cursor=pointer]:
+        - img [ref=e115]
+    - generic [ref=e117]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - text: Company
+            - generic [ref=e122]: "*"
+          - generic [ref=e123]:
+            - textbox "Company" [ref=e124]: Google
+            - group:
+              - generic: Company *
+        - generic [ref=e125]:
+          - generic: Role
+          - generic [ref=e126]:
+            - textbox "Role" [ref=e127]:
+              - /placeholder: e.g., Senior Frontend Engineer
+            - group:
+              - generic: Role
+        - generic [ref=e128]:
+          - generic [ref=e129]: Priority
+          - generic [ref=e130]:
+            - combobox "Medium" [ref=e131] [cursor=pointer]
+            - textbox: medium
+            - img
+            - group:
+              - generic: Priority
+        - generic [ref=e132]:
+          - generic [ref=e133]: Column
+          - generic [ref=e134]:
+            - combobox "Targets Identified" [ref=e135] [cursor=pointer]
+            - textbox: targets-identified
+            - img
+            - group:
+              - generic: Column
+        - generic [ref=e137]:
+          - generic: Tags
+          - generic [ref=e138]:
+            - textbox "Tags" [ref=e139]:
+              - /placeholder: Press Enter to add tag
+            - group:
+              - generic: Tags
+          - paragraph [ref=e140]: Add tags to categorize this target (e.g., remote, react, startup)
+        - generic [ref=e141]:
+          - generic: Why is this a target?
+          - generic [ref=e142]:
+            - textbox "Why is this a target?" [ref=e143]:
+              - /placeholder: e.g., Great culture, competitive salary, remote-first
+            - group:
+              - generic: Why is this a target?
+        - generic [ref=e144]:
+          - generic: Source
+          - generic [ref=e145]:
+            - textbox "Source" [ref=e146]:
+              - /placeholder: e.g., LinkedIn post, Referral from Jane, Company website
+            - group:
+              - generic: Source
+      - generic [ref=e147]:
+        - button "Cancel" [ref=e148] [cursor=pointer]: Cancel
+        - button "Create Target" [active] [ref=e149] [cursor=pointer]: Create Target
+```
