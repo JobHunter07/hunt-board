@@ -30,13 +30,14 @@
 
 ## Feature Readiness
 
-- [x] All functional requirements (FR-001 through FR-010) have clear acceptance criteria
-- [x] User scenarios cover primary flows (single-row layout, search expansion, button color, no red)
-- [x] Feature meets measurable outcomes defined in Success Criteria (SC-001 through SC-005)
+- [x] All functional requirements (FR-001 through FR-013) have clear acceptance criteria
+- [x] User scenarios cover primary flows (single-row layout, search expansion, button color, no red, mobile vertical stack)
+- [x] Feature meets measurable outcomes defined in Success Criteria (SC-001 through SC-006)
 - [x] No implementation details leak into specification
+- [x] Mobile First constitutional compliance verified (Section XIII): mobile layout user story, FR-011–FR-013, mobile viewport Storybook stories, SC-006
 
 ---
 
 ## Notes
 
-All checklist items pass. Spec is ready for `/speckit.plan`.
+All checklist items pass. Mobile First & Offline First requirements added per Constitution Section XIII. Spec is ready for `/speckit.plan`.

@@ -319,6 +319,19 @@ Produce a **professional**, **Material Design–compliant**, **React + MUI** Hun
 
 ---
 
+# 📱 Mobile First & Offline First (NON-NEGOTIABLE)
+
+All UI MUST be designed **mobile first** — start at 320–375px, scale up. All responsive overrides use `min-width` breakpoints only. No hamburger menus — on mobile the header stacks vertically:
+1. Board title
+2. Search field (full width)
+3. Filter button
+4. Add Target button
+5. Columns
+
+All board state MUST be persisted to `localStorage` immediately. The app MUST work fully offline with no network connection required.
+
+---
+
 # 🏛️ Constitutional Compliance
 
 All development must follow the Hunt Board Engineering Constitution (`.specify/memory/constitution.md`):

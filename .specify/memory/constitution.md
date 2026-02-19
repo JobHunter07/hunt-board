@@ -1032,5 +1032,43 @@ src/features/[feature]/validation/ # Phase 3 (TDD)
 
 ---
 
+# XIII. Mobile First & Offline First Design (NON-NEGOTIABLE)
+
+All UI components and pages MUST be designed and implemented for the **smallest supported screen first**, then progressively enhanced for larger viewports. Every feature MUST also function without a network connection.
+
+### Mobile First Rules
+- **Design order**: 320px → 375px → 768px → 1280px → 1920px. Styles begin at mobile and are overridden upward using `theme.breakpoints.up()`.
+- **No desktop-first media queries** (`max-width`) permitted. All responsive overrides use `min-width` breakpoints only.
+- **No hamburger menus or collapsing navs** for the Hunt Board header. Instead, the header layout MUST reflow vertically on small screens in the following order, top to bottom:
+  1. Board title
+  2. Search field (full width)
+  3. Filter button
+  4. Add Target button
+  Columns appear below the header controls.
+- **Touch targets**: All interactive elements MUST have a minimum tap target of 44×44px on mobile.
+- **No hover-only interactions**: Every interaction achievable on desktop via hover MUST have an equivalent tap/touch interaction on mobile.
+- **Typography scaling**: Font sizes must remain readable at 320px without horizontal scroll.
+
+### Offline First Rules
+- **Local-first data**: All board state MUST be persisted to `localStorage` (or equivalent client storage) immediately on every change. The app MUST render correctly with zero network requests.
+- **No blocking network calls** in the critical render path. The board MUST be fully usable with no internet connection.
+- **Service Worker**: A service worker MUST be registered to cache all static assets for offline use.
+- **Graceful degradation**: Any networked features (e.g., sync, export) MUST degrade gracefully when offline, displaying a clear offline indicator rather than erroring.
+- **No required authentication** to view or edit local board data. Auth is delegated to the app shell (`app.jobhunter07.com`) and MUST NOT block local board usage.
+
+### Compliance Checklist (per feature)
+- [ ] Designed at 375px viewport first
+- [ ] All breakpoint overrides use `min-width` / `theme.breakpoints.up()`
+- [ ] Header reflows vertically on < 600px without hamburger menu
+- [ ] All touch targets ≥ 44×44px
+- [ ] Board state persisted to localStorage on every mutation
+- [ ] Storybook stories include Mobile (375px) and Tablet (768px) viewport stories
+- [ ] E2E tests include mobile viewport (375×812) scenarios
+- [ ] No hover-only interactions
+
+**Rationale:** Job hunters use the Hunt Board on phones between meetings, in transit, and in areas with unreliable connectivity. Desktop-first and online-first designs systematically exclude the most critical usage context.
+
+---
+
 **This constitution is binding.
 All contributors must comply.**
