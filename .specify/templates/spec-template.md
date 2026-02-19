@@ -100,6 +100,121 @@
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]
 
+## Component Architecture *(mandatory for UI features)*
+
+<!--
+  ACTION REQUIRED: CONSTITUTIONAL REQUIREMENT (Section II)
+  Define component architecture using ONLY three levels: Atom/Organism/Page.
+  NO Molecules allowed.
+  
+  Skip this section if feature has no UI components.
+-->
+
+### Component Hierarchy
+
+#### Atoms (if applicable)
+- **[ComponentName]**: [Purpose, Material UI base component, props, responsive behavior]
+  - **Material UI Base**: [e.g., Button, TextField, Typography]
+  - **Key Props**: [list main configurable props]
+  - **Responsive**: [describe mobile/tablet/desktop behavior]
+
+#### Organisms (if applicable)
+- **[ComponentName]**: [Purpose, composed atoms/MUI components, props, responsive behavior]
+  - **Composition**: [list atoms and MUI components used]
+  - **Key Props**: [list main configurable props]
+  - **Responsive**: [describe mobile/tablet/desktop behavior]
+  - **State Management**: [if applicable: local state, context, external]
+
+#### Pages (if applicable)
+- **[PageName]**: [Purpose, composed organisms/atoms, layout, responsive behavior]
+  - **Composition**: [list organisms and atoms used]
+  - **Layout**: [describe overall structure]
+  - **Responsive**: [describe mobile/tablet/desktop behavior]
+  - **Data Flow**: [how data enters and moves through the page]
+
+### Material UI Theming
+- **Theme Tokens Used**: [e.g., primary color, spacing(2), typography.h1]
+- **Custom Styling**: [any custom styles beyond theme tokens]
+- **Dark Mode Support**: [Yes/No, if yes describe strategy]
+
+## Accessibility Requirements *(mandatory)*
+
+<!--
+  ACTION REQUIRED: CONSTITUTIONAL REQUIREMENT (Section I)
+  Define accessibility requirements for this feature.
+  All features must be accessible.
+-->
+
+### WCAG Compliance Level
+- **Target**: [AA (required) or AAA (aspirational)]
+
+### Keyboard Navigation
+- **TAB-001**: [Specific keyboard interaction, e.g., "All interactive elements reachable via Tab"]
+- **TAB-002**: [e.g., "Modal can be closed with Escape key"]
+- **TAB-003**: [e.g., "Focus visible on all interactive elements"]
+
+### Screen Reader Support
+- **SR-001**: [ARIA label requirement, e.g., "All buttons have aria-label or visible text"]
+- **SR-002**: [e.g., "Form errors announced to screen readers"]
+- **SR-003**: [e.g., "Loading states announced with aria-live"]
+
+### Visual Accessibility
+- **VISUAL-001**: [Color contrast requirement, e.g., "4.5:1 contrast ratio for all text"]
+- **VISUAL-002**: [e.g., "Information not conveyed by color alone"]
+- **VISUAL-003**: [e.g., "Focus indicators have 3:1 contrast ratio"]
+
+### Motor Accessibility
+- **MOTOR-001**: [Touch target size, e.g., "All interactive elements minimum 44x44px"]
+- **MOTOR-002**: [e.g., "No time-based interactions required"]
+
+### Cognitive Accessibility
+- **COG-001**: [e.g., "Error messages are clear and actionable"]
+- **COG-002**: [e.g., "Consistent navigation patterns throughout"]
+
+## Storybook Story Requirements *(mandatory for UI features)*
+
+<!--
+  ACTION REQUIRED: CONSTITUTIONAL REQUIREMENT (Section V)
+  Define Storybook stories for each component.
+  
+  Skip this section if feature has no UI components.
+-->
+
+### Stories per Component
+
+For each component (Atom/Organism/Page), define:
+
+#### [ComponentName] Stories
+
+**File**: `src/stories/[ComponentName].stories.tsx`
+
+**Required Stories**:
+1. **Default**: [Default state with typical props]
+2. **Empty**: [Empty/no data state]
+3. **Loading**: [Loading state if applicable]
+4. **Error**: [Error state if applicable]
+5. **Disabled**: [Disabled state if applicable]
+6. **Max Content**: [Maximum/overflow content state]
+
+**Interactive Controls**:
+- **[propName]**: [control type: text/boolean/select, description]
+- **[propName]**: [control type, description]
+
+**Accessibility Tests** (using @storybook/addon-a11y):
+- [ ] Color contrast validation
+- [ ] ARIA labels present
+- [ ] Keyboard navigation functional
+- [ ] Focus management correct
+
+**Interaction Tests** (if applicable):
+- **Interaction-001**: [User action → Expected result, e.g., "Click button → Modal opens"]
+- **Interaction-002**: [e.g., "Type in field → Validation message appears"]
+
+### Visual Regression Testing
+- **Tool**: [Chromatic/Percy/other]
+- **Viewports**: [Mobile (375px), Tablet (768px), Desktop (1920px)]
+- **Themes**: [Light mode, Dark mode (if supported)]
+
 ## Success Criteria *(mandatory)*
 
 <!--

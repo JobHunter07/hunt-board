@@ -10,6 +10,8 @@ description: "Task list template for feature implementation"
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
+**Coverage**: CONSTITUTIONAL REQUIREMENT (Section VII) - Minimum 80% coverage for logic, 100% for security-critical paths.
+
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
 ## Format: `[ID] [P?] [Story] Description`
@@ -20,10 +22,15 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
+**CONSTITUTIONAL REQUIREMENT (Section III)**: Organize by VERTICAL SLICES, not horizontal layers.
+
+- **Hunt Board NPM Library**: `src/features/[feature-name]/components/`, `src/stories/`, `tests/`
+  - Components in: `atoms/`, `organisms/`, `pages/` (NO Molecules per Section II)
+  - Vertical slice contains: components, actions, validation, types
 - **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Web app**: `backend/src/features/`, `frontend/src/features/`
+- **Mobile**: `api/src/features/`, `ios/src/` or `android/src/`
+- Paths shown below assume Hunt Board structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
@@ -48,9 +55,12 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
+- [ ] T001 Create project structure per implementation plan (vertical slices)
 - [ ] T002 Initialize [language] project with [framework] dependencies
 - [ ] T003 [P] Configure linting and formatting tools
+- [ ] T004 [P] Setup Material UI theme configuration (if UI feature)
+- [ ] T005 [P] Setup Storybook with CSF3 and autodocs (if UI feature)
+- [ ] T006 [P] Configure accessibility testing (@storybook/addon-a11y)
 
 ---
 
@@ -62,12 +72,14 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T007 Setup database schema and migrations framework (if data)
+- [ ] T008 [P] Setup Zod schemas infrastructure (Section IV: single source of truth)
+- [ ] T009 [P] Configure type generation from schemas (Section IV)
+- [ ] T010 [P] Setup API routing and middleware structure (if API)
+- [ ] T011 Create base models/entities that all stories depend on
+- [ ] T012 Configure error handling and logging infrastructure
+- [ ] T013 Setup environment configuration management
+- [ ] T014 [P] Create shared Material UI components in src/lib (if applicable)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -82,18 +94,37 @@ Examples of foundational tasks (adjust based on your project):
 ### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+> **CONSTITUTIONAL REQUIREMENT (Section VII)**: 80% coverage minimum, 100% for security paths
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T015 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T016 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T017 [P] [US1] Component test for [Component] in tests/unit/[Component].test.tsx (if UI)
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T018 [P] [US1] Create Zod schema for [Entity1] in src/features/[feature]/validation/[entity1].schema.ts
+- [ ] T019 [P] [US1] Generate types from [Entity1] schema (Section IV: types from schemas)
+- [ ] T020 [US1] Create [Entity1] data access in src/features/[feature]/data/[entity1].ts
+- [ ] T021 [US1] Implement [Service] in src/features/[feature]/actions/[service].ts
+- [ ] T022 [US1] Create [Atom] component in src/features/[feature]/components/atoms/[Atom].tsx (if UI)
+- [ ] T023 [US1] Create [Organism] component in src/features/[feature]/components/organisms/[Organism].tsx (if UI)
+- [ ] T024 [US1] Create [Page] component in src/features/[feature]/components/pages/[Page].tsx (if UI)
+- [ ] T025 [US1] Add validation and error handling
+- [ ] T026 [US1] Add logging for user story 1 operations
+
+### Storybook Stories for User Story 1 (MANDATORY for UI - Section V) 📖
+
+> **CONSTITUTIONAL REQUIREMENT (Section V)**: Every component MUST have a Storybook story
+
+- [ ] T027 [P] [US1] Create [Atom].stories.tsx with default/empty/disabled/max states in src/stories/
+- [ ] T028 [P] [US1] Add a11y checks to [Atom] story (@storybook/addon-a11y)
+- [ ] T029 [P] [US1] Add interactive controls to [Atom] story
+- [ ] T030 [P] [US1] Create [Organism].stories.tsx with all required states in src/stories/
+- [ ] T031 [P] [US1] Add a11y checks to [Organism] story
+- [ ] T032 [P] [US1] Add interaction tests to [Organism] story (if applicable)
+- [ ] T033 [P] [US1] Create [Page].stories.tsx with all required states in src/stories/
+- [ ] T034 [P] [US1] Add a11y checks to [Page] story
+- [ ] T035 [P] [US1] Setup visual regression tests for [Page] (Chromatic/Percy)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -107,15 +138,25 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+> **CONSTITUTIONAL REQUIREMENT (Section VII)**: 80% coverage minimum, 100% for security paths
+
+- [ ] T036 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T037 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T038 [P] [US2] Component test for [Component] in tests/unit/[Component].test.tsx (if UI)
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T039 [P] [US2] Create Zod schema for [Entity] in src/features/[feature]/validation/[entity].schema.ts
+- [ ] T040 [P] [US2] Generate types from schema
+- [ ] T041 [US2] Implement [Service] in src/features/[feature]/actions/[service].ts
+- [ ] T042 [US2] Create [Component] in src/features/[feature]/components/[level]/[Component].tsx (if UI)
+- [ ] T043 [US2] Integrate with User Story 1 components (if needed)
+
+### Storybook Stories for User Story 2 (if UI) 📖
+
+- [ ] T044 [P] [US2] Create [Component].stories.tsx with all required states
+- [ ] T045 [P] [US2] Add a11y checks and interactive controls
+- [ ] T046 [P] [US2] Add interaction/visual regression tests
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -129,14 +170,24 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+> **CONSTITUTIONAL REQUIREMENT (Section VII)**: 80% coverage minimum, 100% for security paths
+
+- [ ] T047 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T048 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T049 [P] [US3] Component test for [Component] in tests/unit/[Component].test.tsx (if UI)
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T050 [P] [US3] Create Zod schema for [Entity] in src/features/[feature]/validation/[entity].schema.ts
+- [ ] T051 [P] [US3] Generate types from schema
+- [ ] T052 [US3] Implement [Service] in src/features/[feature]/actions/[service].ts
+- [ ] T053 [US3] Create [Component] in src/features/[feature]/components/[level]/[Component].tsx (if UI)
+
+### Storybook Stories for User Story 3 (if UI) 📖
+
+- [ ] T054 [P] [US3] Create [Component].stories.tsx with all required states
+- [ ] T055 [P] [US3] Add a11y checks and interactive controls
+- [ ] T056 [P] [US3] Add interaction/visual regression tests
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -153,8 +204,13 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
+- [ ] TXXX [P] Additional unit tests to reach 80% coverage (Section VII)
+- [ ] TXXX Verify 100% coverage for security-critical paths (Section VII)
 - [ ] TXXX Security hardening
+- [ ] TXXX [P] Final a11y audit across all components (Section V)
+- [ ] TXXX [P] Visual regression test baseline updates
+- [ ] TXXX Verify tree-shakability (Section XI: NPM Library Requirements)
+- [ ] TXXX Verify explicit exports, no defaults (Section XI)
 - [ ] TXXX Run quickstart.md validation
 
 ---
