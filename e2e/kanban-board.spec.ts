@@ -1,4 +1,10 @@
 import { test, expect } from '@playwright/test';
+import {
+  buildBoundaryJobTarget,
+  buildBoardLoadProfile,
+  buildNormalJobTarget,
+  setFakerSeed,
+} from '../tests/factories/fakerProfiles';
 
 /**
  * E2E Tests for Kanban Board
@@ -51,6 +57,10 @@ test.describe('Kanban Board - Basic Rendering', () => {
 });
 
 test.describe('Kanban Board - Add Target Workflow', () => {
+  test.beforeEach(() => {
+    setFakerSeed(20260219);
+  });
+
   test('should open add target modal when clicking Add button', async ({ page }) => {
     await page.goto('/');
     
@@ -64,20 +74,34 @@ test.describe('Kanban Board - Add Target Workflow', () => {
 
   test('should create new job target', async ({ page }) => {
     await page.goto('/');
+    const profile = buildNormalJobTarget({ columnId: 'targets-identified' });
     
     // Click Add button
     await page.getByRole('button', { name: 'Add Target' }).first().click();
     
     // Fill in form
-    await page.getByLabel(/company/i).fill('Acme Corporation');
-    await page.getByLabel(/role/i).fill('Senior Software Engineer');
+    await page.getByLabel(/company/i).fill(profile.company);
+    await page.getByLabel(/role/i).fill(profile.role);
     
     // Submit form
     await page.getByRole('button', { name: 'Create Target' }).click();
     
     // Verify modal closed and card appears
     await expect(page.getByRole('dialog')).not.toBeVisible();
-    await expect(page.getByText('Acme Corporation')).toBeVisible();
+    await expect(page.getByText(profile.company)).toBeVisible();
+  });
+
+  test('should create boundary-length target from faker profile', async ({ page }) => {
+    await page.goto('/');
+    const boundaryProfile = buildBoundaryJobTarget({ columnId: 'targets-identified' });
+
+    await page.getByRole('button', { name: 'Add Target' }).first().click();
+    await page.getByLabel(/company/i).fill(boundaryProfile.company);
+    await page.getByLabel(/role/i).fill(boundaryProfile.role);
+    await page.getByRole('button', { name: 'Create Target' }).click();
+
+    await expect(page.getByRole('dialog')).not.toBeVisible();
+    await expect(page.getByText(boundaryProfile.company)).toBeVisible();
   });
 
   test('should validate required fields', async ({ page }) => {
@@ -95,42 +119,49 @@ test.describe('Kanban Board - Add Target Workflow', () => {
 });
 
 test.describe('Kanban Board - Search and Filter', () => {
+  let searchTargetCompany = '';
+  let otherTargetCompany = '';
+
   test.beforeEach(async ({ page }) => {
+    setFakerSeed(20260220);
     await page.goto('/');
-    
-    // Create test data
+
+    const [firstProfile, secondProfile] = buildBoardLoadProfile('normal').slice(0, 2);
+    searchTargetCompany = firstProfile?.company ?? buildNormalJobTarget({ columnId: 'targets-identified' }).company;
+    otherTargetCompany = secondProfile?.company ?? buildNormalJobTarget({ columnId: 'targets-identified' }).company;
+
     await page.getByRole('button', { name: 'Add Target' }).first().click();
-    await page.getByLabel(/company/i).fill('Google');
+    await page.getByLabel(/company/i).fill(searchTargetCompany);
     await page.getByRole('button', { name: 'Create Target' }).click();
-    
+
     await page.getByRole('button', { name: 'Add Target' }).first().click();
-    await page.getByLabel(/company/i).fill('Microsoft');
+    await page.getByLabel(/company/i).fill(otherTargetCompany);
     await page.getByRole('button', { name: 'Create Target' }).click();
   });
 
   test('should filter targets by search query', async ({ page }) => {
     // Enter search query
-    await page.getByPlaceholder(/search targets/i).fill('Google');
+    await page.getByPlaceholder(/search targets/i).fill(searchTargetCompany);
     
     // Wait for debounce (300ms + buffer)
     await page.waitForTimeout(500);
     
-    // Verify only Google card is visible
-    await expect(page.getByText('Google')).toBeVisible();
-    await expect(page.getByText('Microsoft')).not.toBeVisible();
+    // Verify only search target card is visible
+    await expect(page.getByText(searchTargetCompany)).toBeVisible();
+    await expect(page.getByText(otherTargetCompany)).not.toBeVisible();
   });
 
   test('should clear search with clear button', async ({ page }) => {
     // Enter search query
-    await page.getByPlaceholder(/search targets/i).fill('Google');
+    await page.getByPlaceholder(/search targets/i).fill(searchTargetCompany);
     await page.waitForTimeout(500);
     
     // Click clear button
     await page.getByLabel('Clear search').click();
     
     // Verify both cards visible again
-    await expect(page.getByText('Google')).toBeVisible();
-    await expect(page.getByText('Microsoft')).toBeVisible();
+    await expect(page.getByText(searchTargetCompany)).toBeVisible();
+    await expect(page.getByText(otherTargetCompany)).toBeVisible();
   });
 
   test('should open filter menu', async ({ page }) => {
@@ -144,16 +175,21 @@ test.describe('Kanban Board - Search and Filter', () => {
 });
 
 test.describe('Kanban Board - Drag and Drop', () => {
+  test.beforeEach(() => {
+    setFakerSeed(20260221);
+  });
+
   test('should drag card between columns', async ({ page }) => {
     await page.goto('/');
+    const dragCardProfile = buildNormalJobTarget({ columnId: 'targets-identified' });
     
     // Create a test card
     await page.getByRole('button', { name: 'Add Target' }).first().click();
-    await page.getByLabel(/company/i).fill('Test Company');
+    await page.getByLabel(/company/i).fill(dragCardProfile.company);
     await page.getByRole('button', { name: 'Create Target' }).click();
     
     // Wait for card to appear
-    const card = page.getByText('Test Company').locator('..');
+    const card = page.getByText(dragCardProfile.company).locator('..');
     await expect(card).toBeVisible();
     
     // Get positions

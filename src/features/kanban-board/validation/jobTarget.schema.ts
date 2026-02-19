@@ -10,7 +10,7 @@ import { WarmUpActionSchema } from './warmUpAction.schema';
  */
 export const JobTargetSchema = z.object({
   /** Unique job target ID (prefixed: jt_) */
-  id: z.string().regex(/^jt_[a-zA-Z0-9]+$/, 'ID must start with jt_'),
+  id: z.string().regex(/^jt_[a-zA-Z0-9_]+$/, 'ID must start with jt_'),
   
   /** Company name (required) */
   company: z.string().min(1).max(100),

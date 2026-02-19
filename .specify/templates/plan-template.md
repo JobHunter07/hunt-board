@@ -5,6 +5,28 @@
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
 
+---
+
+## Three-Phase Development Workflow
+
+**CONSTITUTIONAL REQUIREMENT (Section VI)**: This plan must support three-phase development:
+
+1. **Phase 1: SDD (Spec-Driven Design)** ← Complete (spec.md approved)  
+   Output: This plan.md document defines HOW to build what spec.md defined.
+
+2. **Phase 2: ATDD (Acceptance Test-Driven Design)** ← Next phase  
+   Action: Write acceptance tests for each user story. All tests must FAIL initially.  
+   Framework: [e.g., Playwright for E2E, Vitest for integration]
+   Test Data: MUST use `@faker-js/faker` for generated integration/E2E datasets, including boundary and extreme profiles.
+
+3. **Phase 3: TDD (Test-Driven Development)** ← Implementation phase  
+   Action: Write unit tests (Red) → Implement (Green) → Refactor  
+   Framework: [e.g., Vitest, React Testing Library]
+
+**Gate**: Each phase must complete before proceeding to the next. No skipping or reordering permitted.
+
+---
+
 ## Summary
 
 [Extract from feature spec: primary requirement + technical approach from research]
@@ -75,6 +97,22 @@
 - [ ] Testing strategy defined (unit/integration/component/visual/a11y/e2e)?
 - [ ] Minimum 80% coverage planned for logic?
 - [ ] 100% coverage planned for security-critical paths?
+- [ ] Faker-js strategy defined for integration/E2E test data generation?
+- [ ] Extreme data scenarios planned (high volume, long text, special chars, sparse fields)?
+- [ ] Deterministic seed strategy defined for CI reproducibility?
+
+## ATDD Test Data Strategy *(mandatory)*
+
+**CONSTITUTIONAL REQUIREMENT (Section VII)**: Integration and E2E tests must use `@faker-js/faker` generated data.
+
+- **Faker Package**: `@faker-js/faker`
+- **Factory Location**: [e.g., `tests/factories/[feature].factory.ts`]
+- **Seed Strategy**: [fixed seed in CI / local strategy]
+- **Dataset Profiles**:
+   - **Normal**: realistic data distribution
+   - **Boundary**: min/max lengths, empty optional fields, date boundaries
+   - **Extreme**: too many cards/items, very long names/text, special chars/unicode
+- **Acceptance Mapping**: [map each acceptance criterion to dataset profile(s)]
 
 ### Section XI: NPM Library Requirements (Hunt Board)
 - [ ] Feature is tree-shakable?
