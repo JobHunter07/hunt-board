@@ -1,0 +1,21 @@
+# Build outputs
+dist/
+build/
+coverage/
+storybook-static/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.bundle.js
+
+# Config files (don't lint)
+*.config.js
+*.config.ts
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/

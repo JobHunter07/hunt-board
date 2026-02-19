@@ -1,0 +1,97 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - heading "Hunt Board" [level=1] [ref=e4]
+  - generic [ref=e6]:
+    - generic [ref=e8]:
+      - img [ref=e11]
+      - textbox "Search targets..." [ref=e13]
+      - group
+    - button "Filters" [ref=e14] [cursor=pointer]:
+      - img [ref=e16]
+  - status [ref=e18]: Showing 0 of 0 targets
+  - region "Kanban board columns" [ref=e19]:
+    - region "Targets Identified column" [ref=e20]:
+      - heading "Targets Identified 0 targets in this column" [level=2] [ref=e21]:
+        - heading "Targets Identified" [level=2] [ref=e22]
+        - generic "0 targets in this column" [ref=e23]:
+          - generic [ref=e24]: "0"
+      - list "Job targets in Targets Identified" [ref=e25]
+      - button "Add Target" [ref=e26] [cursor=pointer]:
+        - img [ref=e28]
+        - text: Add Target
+    - region "Intel Gathering column" [ref=e30]:
+      - heading "Intel Gathering 0 targets in this column" [level=2] [ref=e31]:
+        - heading "Intel Gathering" [level=2] [ref=e32]
+        - generic "0 targets in this column" [ref=e33]:
+          - generic [ref=e34]: "0"
+      - list "Job targets in Intel Gathering" [ref=e35]
+      - button "Add Target" [ref=e36] [cursor=pointer]:
+        - img [ref=e38]
+        - text: Add Target
+    - region "Warm-Up Phase column" [ref=e40]:
+      - heading "Warm-Up Phase 0 targets in this column" [level=2] [ref=e41]:
+        - heading "Warm-Up Phase" [level=2] [ref=e42]
+        - generic "0 targets in this column" [ref=e43]:
+          - generic [ref=e44]: "0"
+      - list "Job targets in Warm-Up Phase" [ref=e45]
+      - button "Add Target" [ref=e46] [cursor=pointer]:
+        - img [ref=e48]
+        - text: Add Target
+    - region "Outreach Initiated column" [ref=e50]:
+      - heading "Outreach Initiated 0 targets in this column" [level=2] [ref=e51]:
+        - heading "Outreach Initiated" [level=2] [ref=e52]
+        - generic "0 targets in this column" [ref=e53]:
+          - generic [ref=e54]: "0"
+      - list "Job targets in Outreach Initiated" [ref=e55]
+      - button "Add Target" [ref=e56] [cursor=pointer]:
+        - img [ref=e58]
+        - text: Add Target
+    - region "Follow-Up Required column" [ref=e60]:
+      - heading "Follow-Up Required 0 targets in this column" [level=2] [ref=e61]:
+        - heading "Follow-Up Required" [level=2] [ref=e62]
+        - generic "0 targets in this column" [ref=e63]:
+          - generic [ref=e64]: "0"
+      - list "Job targets in Follow-Up Required" [ref=e65]
+      - button "Add Target" [ref=e66] [cursor=pointer]:
+        - img [ref=e68]
+        - text: Add Target
+    - region "Conversation Started column" [ref=e70]:
+      - heading "Conversation Started 0 targets in this column" [level=2] [ref=e71]:
+        - heading "Conversation Started" [level=2] [ref=e72]
+        - generic "0 targets in this column" [ref=e73]:
+          - generic [ref=e74]: "0"
+      - list "Job targets in Conversation Started" [ref=e75]
+      - button "Add Target" [ref=e76] [cursor=pointer]:
+        - img [ref=e78]
+        - text: Add Target
+    - region "Interview Pipeline column" [ref=e80]:
+      - heading "Interview Pipeline 0 targets in this column" [level=2] [ref=e81]:
+        - heading "Interview Pipeline" [level=2] [ref=e82]
+        - generic "0 targets in this column" [ref=e83]:
+          - generic [ref=e84]: "0"
+      - list "Job targets in Interview Pipeline" [ref=e85]
+      - button "Add Target" [ref=e86] [cursor=pointer]:
+        - img [ref=e88]
+        - text: Add Target
+    - region "Stalled / Cold column" [ref=e90]:
+      - heading "Stalled / Cold 0 targets in this column" [level=2] [ref=e91]:
+        - heading "Stalled / Cold" [level=2] [ref=e92]
+        - generic "0 targets in this column" [ref=e93]:
+          - generic [ref=e94]: "0"
+      - list "Job targets in Stalled / Cold" [ref=e95]
+      - button "Add Target" [ref=e96] [cursor=pointer]:
+        - img [ref=e98]
+        - text: Add Target
+    - region "Offer / Success column" [ref=e100]:
+      - heading "Offer / Success 0 targets in this column" [level=2] [ref=e101]:
+        - heading "Offer / Success" [level=2] [ref=e102]
+        - generic "0 targets in this column" [ref=e103]:
+          - generic [ref=e104]: "0"
+      - list "Job targets in Offer / Success" [ref=e105]
+      - button "Add Target" [ref=e106] [cursor=pointer]:
+        - img [ref=e108]
+        - text: Add Target
+  - status [ref=e110]
+```

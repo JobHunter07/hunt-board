@@ -1,0 +1,39 @@
+# Source files (publish only dist/)
+src/
+tests/
+.storybook/
+stories/
+
+# Development files
+tsconfig.json
+tsconfig.build.json
+vite.config.ts
+vitest.config.ts
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Documentation (keep README.md, LICENSE)
+.specify/
+.github/
+specs/
+.vscode/
+
+# Build artifacts  
+node_modules/
+coverage/
+storybook-static/
+*.log
+*.tsbuildinfo
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Environment
+.env*
+
+# OS files
+.DS_Store
+Thumbs.db

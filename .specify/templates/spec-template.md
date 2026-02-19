@@ -5,6 +5,27 @@
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
+---
+
+## Three-Phase Development Methodology
+
+**CONSTITUTIONAL REQUIREMENT (Section VI)**: This specification feeds into a three-phase development workflow:
+
+1. **Phase 1: SDD (Spec-Driven Design)** ← **You are here**  
+   Define WHAT to build and WHY. This document is the output.
+
+2. **Phase 2: ATDD (Acceptance Test-Driven Design)**  
+   Write acceptance tests based on scenarios below. Tests must FAIL before implementation.
+
+3. **Phase 3: TDD (Test-Driven Development)**  
+   Write unit tests and implement to make all tests pass.
+
+**Critical**: Acceptance scenarios below must be written in executable Given/When/Then format for ATDD phase.
+
+**Test Data Rule (Section VII)**: ATDD integration/E2E tests MUST use `@faker-js/faker` generated data and include boundary/extreme scenarios.
+
+---
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -28,10 +49,30 @@
 
 **Independent Test**: [Describe how this can be tested independently - e.g., "Can be fully tested by [specific action] and delivers [specific value]"]
 
-**Acceptance Scenarios**:
+**Acceptance Criteria** (for ATDD Phase):
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+<!--
+  IMPORTANT: These scenarios will be converted to executable acceptance tests in Phase 2 (ATDD).
+  Write them in precise Given/When/Then format:
+  - GIVEN: Initial state/context (setup)
+  - WHEN: User action or event (trigger)
+  - THEN: Expected outcome (assertion)
+  
+  Good example:
+  GIVEN the user is on the job board with 5 targets in "Targets Identified" column
+  WHEN the user drags a target card to "Intel Gathering" column
+  THEN the card appears in "Intel Gathering" column AND "Targets Identified" count decrements by 1
+  
+  Bad example:
+  GIVEN user is logged in
+  WHEN user does something
+  THEN it works
+-->
+
+1. **Given** [precise initial state with data], **When** [specific user action], **Then** [measurable outcome with data]
+2. **Given** [precise initial state with data], **When** [specific user action], **Then** [measurable outcome with data]
+3. **Given** [error state], **When** [user action], **Then** [specific error message or recovery path]
+4. **Given** [extreme data profile generated via Faker], **When** [same user action], **Then** [system remains stable and expected behavior holds]
 
 ---
 
@@ -43,9 +84,10 @@
 
 **Independent Test**: [Describe how this can be tested independently]
 
-**Acceptance Scenarios**:
+**Acceptance Criteria** (for ATDD Phase):
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **Given** [precise initial state with data], **When** [specific user action], **Then** [measurable outcome with data]
+2. **Given** [error state], **When** [user action], **Then** [specific error message or recovery path]
 
 ---
 
@@ -57,9 +99,10 @@
 
 **Independent Test**: [Describe how this can be tested independently]
 
-**Acceptance Scenarios**:
+**Acceptance Criteria** (for ATDD Phase):
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **Given** [precise initial state with data], **When** [specific user action], **Then** [measurable outcome with data]
+2. **Given** [error state], **When** [user action], **Then** [specific error message or recovery path]
 
 ---
 
@@ -74,6 +117,23 @@
 
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
+- What happens when Faker-generated dataset includes extremely long company/role/note strings?
+- What happens when board/item volume is very high (stress scenario, e.g., too many cards)?
+- What happens with special characters/unicode and mixed completeness (missing optional fields)?
+
+### ATDD Test Data Profile *(mandatory)*
+
+<!--
+  ACTION REQUIRED: CONSTITUTIONAL REQUIREMENT (Section VII)
+  Define the Faker-js strategy used for integration/E2E test data generation.
+-->
+
+- **Generator Library**: `@faker-js/faker` (required)
+- **Seed Strategy**: [e.g., fixed seed in CI + optional random local seed]
+- **Normal Dataset**: [typical production-like values]
+- **Boundary Dataset**: [min/max lengths, empty optional fields, date boundaries]
+- **Extreme Dataset**: [very high card/item counts, oversized text, heavy unicode/special chars]
+- **Coverage Mapping**: [which acceptance criteria are validated with each dataset profile]
 
 ## Requirements *(mandatory)*
 
