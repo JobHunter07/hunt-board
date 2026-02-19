@@ -17,6 +17,12 @@ export type { ColumnHeaderProps } from './components/atoms/ColumnHeader';
 export { AddButton } from './components/atoms/AddButton';
 export type { AddButtonProps } from './components/atoms/AddButton';
 
+export { SearchField } from './components/atoms/SearchField';
+export type { SearchFieldProps } from './components/atoms/SearchField';
+
+export { FilterButton } from './components/atoms/FilterButton';
+export type { FilterButtonProps } from './components/atoms/FilterButton';
+
 // Components - Organisms
 export { KanbanColumn } from './components/organisms/KanbanColumn';
 export type { KanbanColumnProps } from './components/organisms/KanbanColumn';
@@ -27,6 +33,12 @@ export type { JobTargetCardProps } from './components/organisms/JobTargetCard';
 export { AddTargetModal } from './components/organisms/AddTargetModal';
 export type { AddTargetModalProps, AddTargetFormData } from './components/organisms/AddTargetModal';
 
+export { CardDetailModal } from './components/organisms/CardDetailModal';
+export type { CardDetailModalProps } from './components/organisms/CardDetailModal';
+
+export { SearchFilterBar } from './components/organisms/SearchFilterBar';
+export type { SearchFilterBarProps } from './components/organisms/SearchFilterBar';
+
 // Components - Pages
 export { KanbanBoardPage } from './components/pages/KanbanBoardPage';
 
@@ -34,6 +46,7 @@ export { KanbanBoardPage } from './components/pages/KanbanBoardPage';
 export { useLocalStorage } from './hooks/useLocalStorage';
 export { useBoardState } from './hooks/useBoardState';
 export { useDragAndDrop } from './hooks/useDragAndDrop';
+export { useCardFilters } from './hooks/useCardFilters';
 
 // Types (re-exported from types/index.ts)
 export type {

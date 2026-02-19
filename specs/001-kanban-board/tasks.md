@@ -206,19 +206,19 @@ graph TD
 
 #### Organisms
 
-- [ ] T047 [US3] Create CardDetailModal organism in src/features/kanban-board/components/organisms/CardDetailModal.tsx (Dialog max-width 800px desktop/full-screen mobile, Tabs for 6 sections, Core Info tab: TextFields for company/role/reason/source + Select for priority/column + Tag management, Warm-Up tab: List of WarmUpActions with Add button + warm-up score display, Outreach tab: List of OutreachRecords with Add button, Follow-Up tab: List of FollowUps with DatePicker + Add button, Signals tab: List with type icons, Attachments tab: File upload UI, Save/Delete Buttons, Form state with React Hook Form, Zod validation)
+- [X] T047 [US3] Create CardDetailModal organism in src/features/kanban-board/components/organisms/CardDetailModal.tsx (Dialog max-width 800px desktop/full-screen mobile, Tabs for 6 sections, Core Info tab: TextFields for company/role/reason/source + Select for priority/column + Tag management, Warm-Up tab: List of WarmUpActions with Add button + warm-up score display, Outreach tab: List of OutreachRecords with Add button, Follow-Up tab: List of FollowUps with DatePicker + Add button, Signals tab: List with type icons, Attachments tab: File upload UI, Save/Delete Buttons, Form state with React Hook Form, Zod validation)
 
 #### Page Integration
 
-- [ ] T048 [US3] Enhance JobTargetCard with click handler (add onClick prop, pass to CardDetailModal, manage modal state in KanbanBoardPage)
-- [ ] T049 [US3] Add card update logic to useBoardState.ts (updateJobTarget helper, find by ID, merge updates, save to localStorage with debounce, update updatedAt timestamp)
-- [ ] T050 [US3] Add card delete logic to useBoardState.ts (deleteJobTarget helper, filter from jobTargets array, save to localStorage, show confirmation Dialog before delete)
+- [X] T048 [US3] Enhance JobTargetCard with click handler (add onClick prop, pass to CardDetailModal, manage modal state in KanbanBoardPage)
+- [X] T049 [US3] Add card update logic to useBoardState.ts (updateJobTarget helper, find by ID, merge updates, save to localStorage with debounce, update updatedAt timestamp)
+- [X] T050 [US3] Add card delete logic to useBoardState.ts (deleteJobTarget helper, filter from jobTargets array, save to localStorage, show confirmation Dialog before delete)
 
 ### Storybook Stories for User Story 3 📖
 
-- [ ] T051 [P] [US3] Create CardDetailModal.stories.tsx in src/stories/organisms/ (6 stories: Empty target, Minimal data, Full target with all nested entities, Each tab active, Validation errors, Delete confirmation, a11y checks, interactive controls for all tabs)
-- [ ] T052 [US3] Add "Edit Card Details" story to KanbanBoardPage.stories.tsx (interactive story with CardDetailModal open, demonstrates edit workflow)
-- [ ] T053 [US3] Add "Delete Card Confirmation" story to KanbanBoardPage.stories.tsx (interactive story showing delete dialog)
+- [X] T051 [P] [US3] Create CardDetailModal.stories.tsx in src/stories/organisms/ (6 stories: Empty target, Minimal data, Full target with all nested entities, Each tab active, Validation errors, Delete confirmation, a11y checks, interactive controls for all tabs)
+- [X] T052 [US3] Add "Edit Card Details" story to KanbanBoardPage.stories.tsx (interactive story with CardDetailModal open, demonstrates edit workflow)
+- [X] T053 [US3] Add "Delete Card Confirmation" story to KanbanBoardPage.stories.tsx (interactive story showing delete dialog)
 
 **Checkpoint**: ✅ User Story 3 complete - Users can view/edit all card details with nested entities and delete cards
 
@@ -236,21 +236,21 @@ graph TD
 
 #### Atoms
 
-- [ ] T054 [P] [US4] Create SearchField atom in src/features/kanban-board/components/atoms/SearchField.tsx (TextField with InputAdornment SearchIcon, debounced onChange at 300ms, clear button via InputAdornment, responsive: full width mobile, constrained desktop)
-- [ ] T055 [P] [US4] Create FilterButton atom in src/features/kanban-board/components/atoms/FilterButton.tsx (IconButton with FilterListIcon, active state styling, badge showing active filter count)
+- [X] T054 [P] [US4] Create SearchField atom in src/features/kanban-board/components/atoms/SearchField.tsx (TextField with InputAdornment SearchIcon, debounced onChange at 300ms, clear button via InputAdornment, responsive: full width mobile, constrained desktop)
+- [X] T055 [P] [US4] Create FilterButton atom in src/features/kanban-board/components/atoms/FilterButton.tsx (IconButton with FilterListIcon, active state styling, badge showing active filter count)
 
 #### Organisms
 
-- [ ] T056 [US4] Create SearchFilterBar organism in src/features/kanban-board/components/organisms/SearchFilterBar.tsx (Box container horizontal layout desktop/stacked mobile, SearchField, FilterButton, Menu/Popover with filter options: Checkbox groups for Priorities + Tags, Clear all button, responsive layout)
+- [X] T056 [US4] Create SearchFilterBar organism in src/features/kanban-board/components/organisms/SearchFilterBar.tsx (Box container horizontal layout desktop/stacked mobile, SearchField, FilterButton, Menu/Popover with filter options: Checkbox groups for Priorities + Tags, Clear all button, responsive layout)
 
 #### Hooks for Filtering
 
-- [ ] T057 [US4] Create useCardFilters.ts hook in src/features/kanban-board/hooks/ (manages filter state: searchQuery, selectedPriorities, selectedTags, hasFollowUp boolean, integrates with UserPreferences for persistence, returns filteredCards array)
+- [X] T057 [US4] Create useCardFilters.ts hook in src/features/kanban-board/hooks/ (manages filter state: searchQuery, selectedPriorities, selectedTags, hasFollowUp boolean, integrates with UserPreferences for persistence, returns filteredCards array)
 
 #### Page Integration
 
-- [ ] T058 [US4] Enhance KanbanBoardPage with SearchFilterBar (add SearchFilterBar above columns, connect to useCardFilters hook, pass filteredCards to KanbanColumns instead of all cards, show "X of Y targets" indicator, aria-live announcements for filter changes)
-- [ ] T059 [US4] Update useLocalStorage.ts to persist UserPreferences (add saveUserPreferences/loadUserPreferences alongside board state)
+- [X] T058 [US4] Enhance KanbanBoardPage with SearchFilterBar (add SearchFilterBar above columns, connect to useCardFilters hook, pass filteredCards to KanbanColumns instead of all cards, show "X of Y targets" indicator, aria-live announcements for filter changes)
+- [X] T059 [US4] Update useLocalStorage.ts to persist UserPreferences (add saveUserPreferences/loadUserPreferences alongside board state)
 
 ### Storybook Stories for User Story 4 📖
 

@@ -9,11 +9,12 @@ import type { JobTarget } from '@/features/kanban-board/types';
 
 export type JobTargetCardProps = {
   jobTarget: JobTarget;
+  onClick?: () => void;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-export function JobTargetCard({ jobTarget, onEdit, onDelete }: JobTargetCardProps) {
+export function JobTargetCard({ jobTarget, onClick, onEdit, onDelete }: JobTargetCardProps) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: jobTarget.id
   });
@@ -21,7 +22,14 @@ export function JobTargetCard({ jobTarget, onEdit, onDelete }: JobTargetCardProp
   const style = {
     transform: CSS.Translate.toString(transform),
     opacity: isDragging ? 0.5 : 1,
-    cursor: isDragging ? 'grabbing' : 'grab'
+    cursor: isDragging ? 'grabbing' : onClick ? 'pointer' : 'grab'
+  };
+
+  const handleCardClick = () => {
+    // Only trigger onClick if not dragging and handler exists
+    if (onClick && !isDragging) {
+      onClick();
+    }
   };
 
   return (
@@ -30,6 +38,7 @@ export function JobTargetCard({ jobTarget, onEdit, onDelete }: JobTargetCardProp
       style={style}
       {...listeners}
       {...attributes}
+      onClick={handleCardClick}
       elevation={2}
       sx={{
         backgroundColor: 'background.paper',

@@ -3,12 +3,13 @@ import { useDroppable } from '@dnd-kit/core';
 import { ColumnHeader } from '../atoms/ColumnHeader';
 import { AddButton } from '../atoms/AddButton';
 import type { Column, JobTarget } from '@/features/kanban-board/types';
-import { JobTargetCard } from './JobTargetCard';
+import { JobTargetCard, type JobTargetCardProps } from './JobTargetCard';
 
 export type KanbanColumnProps = {
   column: Column;
   jobTargets: JobTarget[];
   onAddTarget: () => void;
+  onCardClick?: (target: JobTarget) => void;
   onEditTarget: (targetId: string) => void;
   onDeleteTarget: (targetId: string) => void;
 }
@@ -17,6 +18,7 @@ export function KanbanColumn({
   column,
   jobTargets,
   onAddTarget,
+  onCardClick,
   onEditTarget,
   onDeleteTarget
 }: KanbanColumnProps) {
@@ -60,14 +62,19 @@ export function KanbanColumn({
           }
         }}
       >
-        {jobTargets.map((target) => (
-          <JobTargetCard
-            key={target.id}
-            jobTarget={target}
-            onEdit={() => { onEditTarget(target.id); }}
-            onDelete={() => { onDeleteTarget(target.id); }}
-          />
-        ))}
+        {jobTargets.map((target) => {
+          const cardProps: JobTargetCardProps = {
+            jobTarget: target,
+            onEdit: () => { onEditTarget(target.id); },
+            onDelete: () => { onDeleteTarget(target.id); },
+          };
+          
+          if (onCardClick) {
+            cardProps.onClick = () => { onCardClick(target); };
+          }
+          
+          return <JobTargetCard key={target.id} {...cardProps} />;
+        })}
       </Stack>
       
       <AddButton onClick={onAddTarget} />
