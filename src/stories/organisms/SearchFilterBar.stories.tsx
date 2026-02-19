@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SearchFilterBar } from '@/features/kanban-board/components/organisms/SearchFilterBar';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { useState } from 'react';
 import { Box } from '@mui/material';
 import type { Priority } from '@/features/kanban-board/types';

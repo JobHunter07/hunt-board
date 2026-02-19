@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TagChip } from '@/features/kanban-board/components/atoms/TagChip';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 /**
  * TagChip displays a tag with optional delete functionality.

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { JobTargetCard } from '@/features/kanban-board/components/organisms/JobTargetCard';
 import { createJobTarget } from '@/features/kanban-board/validation/jobTarget.schema';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import type { JobTarget } from '@/features/kanban-board/types';
 
 /**

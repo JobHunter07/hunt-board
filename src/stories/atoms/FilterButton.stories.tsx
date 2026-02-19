@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FilterButton } from '@/features/kanban-board/components/atoms/FilterButton';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Box } from '@mui/material';
 
 /**

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AddButton } from '@/features/kanban-board/components/atoms/AddButton';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 /**
  * AddButton triggers creation of new job target cards.

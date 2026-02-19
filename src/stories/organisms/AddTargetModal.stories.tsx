@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AddTargetModal } from '@/features/kanban-board/components/organisms/AddTargetModal';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 
