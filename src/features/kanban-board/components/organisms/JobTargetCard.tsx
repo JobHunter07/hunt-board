@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Card, CardContent, Typography, Box, Stack, IconButton, Chip } from '@mui/material';
+import { Card, CardContent, Typography, Box, Stack, IconButton, Chip, Tooltip } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDraggable } from '@dnd-kit/core';
@@ -66,21 +66,21 @@ const JobTargetCardComponent = ({ jobTarget, onClick, onEdit, onDelete }: JobTar
         }
       }}
     >
-      <CardContent sx={{ p: 2, '&:last-child': { pb: 2 } }}>
+      <CardContent sx={{ p: 1.5, '&:last-child': { pb: 1.5 } }}>
         {/* Company and Role */}
-        <Box sx={{ mb: 1.5 }}>
-          <Typography variant="subtitle1" sx={{ fontWeight: 500, mb: 0.5 }}>
+        <Box sx={{ mb: 1 }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: 500, mb: 0.5, fontSize: '0.85rem' }}>
             {jobTarget.company}
           </Typography>
           {jobTarget.role && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
               {jobTarget.role}
             </Typography>
           )}
         </Box>
 
         {/* Priority and Warm-Up Score */}
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1.5 }}>
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
           <PriorityIndicator priority={jobTarget.priority} />
           {jobTarget.warmUpScore > 0 && (
             <Chip
@@ -99,7 +99,7 @@ const JobTargetCardComponent = ({ jobTarget, onClick, onEdit, onDelete }: JobTar
 
         {/* Tags */}
         {jobTarget.tags.length > 0 && (
-          <Stack direction="row" spacing={0.5} flexWrap="wrap" gap={0.5} sx={{ mb: 1.5 }}>
+          <Stack direction="row" spacing={0.5} flexWrap="wrap" gap={0.5} sx={{ mb: 1 }}>
             {jobTarget.tags.slice(0, 3).map((tagId) => (
               <TagChip key={tagId} label={tagId} />
             ))}
@@ -111,28 +111,32 @@ const JobTargetCardComponent = ({ jobTarget, onClick, onEdit, onDelete }: JobTar
 
         {/* Action Buttons */}
         <Stack direction="row" spacing={0.5} justifyContent="flex-end">
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              onEdit();
-            }}
-            sx={{ color: 'primary.main' }}
-            aria-label="Edit target"
-          >
-            <EditIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            size="small"
-            onClick={(e) => {
-              e.stopPropagation();
-              onDelete();
-            }}
-            sx={{ color: 'error.main' }}
-            aria-label="Delete target"
-          >
-            <DeleteIcon fontSize="small" />
-          </IconButton>
+          <Tooltip title="Edit target" placement="top" arrow>
+            <IconButton
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+                onEdit();
+              }}
+              sx={{ color: 'primary.main' }}
+              aria-label="Edit target"
+            >
+              <EditIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Delete target" placement="top" arrow>
+            <IconButton
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete();
+              }}
+              sx={{ color: 'error.main' }}
+              aria-label="Delete target"
+            >
+              <DeleteIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
         </Stack>
       </CardContent>
     </Card>

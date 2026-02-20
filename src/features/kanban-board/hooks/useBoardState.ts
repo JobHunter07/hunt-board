@@ -13,9 +13,11 @@ const DEFAULT_BOARD_STATE: BoardState = {
   lastUpdated: new Date().toISOString()
 };
 
-export function useBoardState() {
+export const BOARD_STORAGE_KEY = 'hunt-board:board-state';
+
+export function useBoardState(storageKey: string = BOARD_STORAGE_KEY) {
   const [boardState, setBoardState] = useLocalStorage(
-    'hunt-board:board-state',
+    storageKey,
     DEFAULT_BOARD_STATE,
     BoardStateSchema
   );

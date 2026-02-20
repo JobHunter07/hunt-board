@@ -1,0 +1,1168 @@
+{
+  "schemaVersion": "v1.0.0",
+  "lastUpdated": "2026-02-19T12:00:00.000Z",
+  "tags": [
+    { "id": "a1b2c3d4-0000-0000-0000-000000000001", "label": "remote", "color": "#2196F3" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000002", "label": "high-growth", "color": "#4CAF50" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000003", "label": "referral-ready", "color": "#FF9800" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000004", "label": "stealth-role", "color": "#9C27B0" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000005", "label": "urgent", "color": "#F44336" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000006", "label": "backend", "color": "#607D8B" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000007", "label": "leadership", "color": "#3F51B5" },
+    { "id": "a1b2c3d4-0000-0000-0000-000000000008", "label": "series-c", "color": "#009688" }
+  ],
+  "columns": [
+    { "id": "targets-identified",  "title": "Targets Identified",   "description": "Jobs, companies, or teams that look interesting but need research", "order": 0, "color": "#9E9E9E" },
+    { "id": "intel-gathering",     "title": "Intel Gathering",       "description": "Research phase before any outreach",                               "order": 1, "color": "#2196F3" },
+    { "id": "warm-up-phase",       "title": "Warm-Up Phase",         "description": "Building relationships before outreach",                           "order": 2, "color": "#FF9800" },
+    { "id": "outreach-initiated",  "title": "Outreach Initiated",    "description": "First contact made",                                               "order": 3, "color": "#4CAF50" },
+    { "id": "follow-up-required",  "title": "Follow-Up Required",    "description": "Cards needing follow-up action",                                   "order": 4, "color": "#F44336" },
+    { "id": "conversation-started","title": "Conversation Started",  "description": "Active engagement with company",                                   "order": 5, "color": "#9C27B0" },
+    { "id": "interview-pipeline",  "title": "Interview Pipeline",    "description": "Formal interview process",                                         "order": 6, "color": "#3F51B5" },
+    { "id": "stalled-cold",        "title": "Stalled / Cold",        "description": "Trail went cold",                                                  "order": 7, "color": "#607D8B" },
+    { "id": "offer-success",       "title": "Offer / Success",       "description": "Offers received or strong leads",                                  "order": 8, "color": "#4CAF50" }
+  ],
+  "jobTargets": [
+
+    {
+      "id": "jt_1708360800001_ti0001",
+      "company": "Stripe",
+      "role": "Senior Software Engineer",
+      "columnId": "targets-identified",
+      "priority": "high",
+      "tags": ["remote", "high-growth"],
+      "warmUpScore": 0,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "notes": "Saw a Twitter thread from their infra team. Hyper-growth, strong eng culture.",
+      "targetReason": "Strong engineering brand, distributed systems work aligns with my background.",
+      "source": "Twitter / X post from engineering team",
+      "archived": false,
+      "createdAt": "2026-02-01T09:00:00.000Z",
+      "updatedAt": "2026-02-01T09:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800002_ti0002",
+      "company": "Linear",
+      "role": "Staff Engineer",
+      "columnId": "targets-identified",
+      "priority": "medium",
+      "tags": ["remote", "stealth-role"],
+      "warmUpScore": 0,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "notes": "No public listing but heard through the grapevine they are growing the eng team.",
+      "targetReason": "Product I use daily. Small, elite team doing incredible work.",
+      "source": "Referral rumor from ex-colleague",
+      "archived": false,
+      "createdAt": "2026-02-02T10:00:00.000Z",
+      "updatedAt": "2026-02-02T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800003_ti0003",
+      "company": "Vercel",
+      "role": "Principal Engineer, Platform",
+      "columnId": "targets-identified",
+      "priority": "medium",
+      "tags": ["remote", "high-growth", "backend"],
+      "warmUpScore": 0,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Guillermo Rauch",
+          "role": "CEO",
+          "linkedInUrl": "https://linkedin.com/in/guillermo-rauch",
+          "notes": "Very active on Twitter. Posts about edge computing regularly."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Series D, heavy investment in edge infra. Role not yet posted.",
+      "archived": false,
+      "createdAt": "2026-02-03T08:30:00.000Z",
+      "updatedAt": "2026-02-03T08:30:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800004_ig0001",
+      "company": "Figma",
+      "role": "Engineering Manager, Growth",
+      "columnId": "intel-gathering",
+      "priority": "high",
+      "tags": ["leadership", "high-growth"],
+      "warmUpScore": 10,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Dylan Field",
+          "role": "CEO",
+          "linkedInUrl": "https://linkedin.com/in/dylanfield",
+          "notes": "Posts about design + eng culture. Worth engaging."
+        },
+        {
+          "name": "Amanda Lim",
+          "role": "Head of Engineering, Growth",
+          "notes": "Likely the hiring manager. Found via LinkedIn team page."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Adobe acquisition blocked. Back to IPO track. Growth team expanding.",
+      "source": "LinkedIn job posting (now closed)",
+      "archived": false,
+      "createdAt": "2026-02-04T09:00:00.000Z",
+      "updatedAt": "2026-02-05T11:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800005_ig0002",
+      "company": "Notion",
+      "role": "Senior Backend Engineer",
+      "columnId": "intel-gathering",
+      "priority": "medium",
+      "tags": ["remote", "series-c", "backend"],
+      "warmUpScore": 5,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [],
+      "signals": [
+        {
+          "type": "profile-view",
+          "date": "2026-02-06T14:00:00.000Z",
+          "description": "Someone from Notion viewed my LinkedIn profile"
+        }
+      ],
+      "attachments": [],
+      "notes": "Checked their engineering blog. Strong PostgreSQL usage, interesting scale problems.",
+      "source": "Hacker News Who's Hiring thread",
+      "archived": false,
+      "createdAt": "2026-02-04T14:00:00.000Z",
+      "updatedAt": "2026-02-06T14:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800006_ig0003",
+      "company": "Planetscale",
+      "role": "Developer Advocate / Engineer",
+      "columnId": "intel-gathering",
+      "priority": "low",
+      "tags": ["remote", "backend"],
+      "warmUpScore": 15,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Sam Lambert",
+          "role": "VP of Product",
+          "linkedInUrl": "https://linkedin.com/in/isamlambert",
+          "notes": "Very active on Twitter about databases. Engage with his posts."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Database-per-tenant model is fascinating. Role blends eng + advocacy.",
+      "source": "Company blog post shared on HN",
+      "archived": false,
+      "createdAt": "2026-02-05T10:00:00.000Z",
+      "updatedAt": "2026-02-05T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800007_wu0001",
+      "company": "Supabase",
+      "role": "Senior Full Stack Engineer",
+      "columnId": "warm-up-phase",
+      "priority": "high",
+      "tags": ["remote", "high-growth", "backend"],
+      "warmUpScore": 45,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0001-000000000001",
+          "type": "follow-linkedin",
+          "actionDate": "2026-02-07T09:00:00.000Z",
+          "targetPerson": "Paul Copplestone",
+          "description": "Followed CEO Paul Copplestone on LinkedIn",
+          "impactScore": 10
+        },
+        {
+          "id": "b1c2d3e4-0000-0000-0001-000000000002",
+          "type": "engage-post",
+          "actionDate": "2026-02-09T11:00:00.000Z",
+          "targetPerson": "Paul Copplestone",
+          "description": "Liked and commented on his post about Postgres extensions",
+          "impactScore": 20
+        },
+        {
+          "id": "b1c2d3e4-0000-0000-0001-000000000003",
+          "type": "read-content",
+          "actionDate": "2026-02-10T08:00:00.000Z",
+          "description": "Read their engineering blog series on realtime subscriptions",
+          "impactScore": 15
+        }
+      ],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Paul Copplestone",
+          "role": "CEO & Co-founder",
+          "linkedInUrl": "https://linkedin.com/in/paulcopplestone",
+          "notes": "Very accessible, responds to thoughtful comments."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Open source and building fast. They hired remotely from my timezone before.",
+      "source": "GitHub trending repos",
+      "archived": false,
+      "createdAt": "2026-02-06T08:00:00.000Z",
+      "updatedAt": "2026-02-10T08:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800008_wu0002",
+      "company": "Turso",
+      "role": "Platform Engineer",
+      "columnId": "warm-up-phase",
+      "priority": "medium",
+      "tags": ["remote", "stealth-role", "backend"],
+      "warmUpScore": 30,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0002-000000000001",
+          "type": "join-community",
+          "actionDate": "2026-02-08T10:00:00.000Z",
+          "description": "Joined their public Discord. Introduced myself in #general",
+          "impactScore": 25
+        },
+        {
+          "id": "b1c2d3e4-0000-0000-0002-000000000002",
+          "type": "comment",
+          "actionDate": "2026-02-11T15:00:00.000Z",
+          "description": "Asked a technical question in Discord that got noticed by a founder",
+          "impactScore": 30
+        }
+      ],
+      "outreachRecords": [],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0001-000000000001",
+          "scheduledDate": "2026-02-22T09:00:00.000Z",
+          "action": "Share a small blog post about my experience with their SQLite driver",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-22T09:00:00.000Z",
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "notes": "Discord community is very active. Founders respond directly.",
+      "source": "Discord invite from fellow developer",
+      "archived": false,
+      "createdAt": "2026-02-07T11:00:00.000Z",
+      "updatedAt": "2026-02-11T15:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800009_wu0003",
+      "company": "Resend",
+      "role": "Growth Engineer",
+      "columnId": "warm-up-phase",
+      "priority": "medium",
+      "tags": ["remote", "high-growth"],
+      "warmUpScore": 55,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0003-000000000001",
+          "type": "follow-linkedin",
+          "actionDate": "2026-02-05T09:00:00.000Z",
+          "targetPerson": "Zeno Rocha",
+          "description": "Followed CEO Zeno Rocha on LinkedIn and Twitter",
+          "impactScore": 10
+        },
+        {
+          "id": "b1c2d3e4-0000-0000-0003-000000000002",
+          "type": "engage-post",
+          "actionDate": "2026-02-08T14:00:00.000Z",
+          "targetPerson": "Zeno Rocha",
+          "description": "Replied to his post about developer experience with a thoughtful comment",
+          "impactScore": 20
+        },
+        {
+          "id": "b1c2d3e4-0000-0000-0003-000000000003",
+          "type": "attend-event",
+          "actionDate": "2026-02-12T18:00:00.000Z",
+          "description": "Attended their virtual community call on developer advocacy",
+          "impactScore": 25
+        }
+      ],
+      "outreachRecords": [],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Zeno Rocha",
+          "role": "CEO",
+          "linkedInUrl": "https://linkedin.com/in/zenorocha",
+          "notes": "Knows me by name from the community call."
+        }
+      ],
+      "signals": [
+        {
+          "type": "profile-view",
+          "date": "2026-02-13T10:00:00.000Z",
+          "description": "Zeno Rocha viewed my LinkedIn profile the day after the community call"
+        }
+      ],
+      "attachments": [],
+      "notes": "Very warm community. CEO is hands-on. Perfect timing to reach out.",
+      "source": "Y Combinator job board",
+      "archived": false,
+      "createdAt": "2026-02-04T15:00:00.000Z",
+      "updatedAt": "2026-02-13T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800010_oi0001",
+      "company": "Fly.io",
+      "role": "Infrastructure Engineer",
+      "columnId": "outreach-initiated",
+      "priority": "high",
+      "tags": ["remote", "backend", "high-growth"],
+      "warmUpScore": 65,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0004-000000000001",
+          "type": "engage-post",
+          "actionDate": "2026-02-06T10:00:00.000Z",
+          "targetPerson": "Kurt Mackey",
+          "description": "Engaged on multiple posts about WireGuard and distributed systems",
+          "impactScore": 30
+        }
+      ],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0001-000000000001",
+          "type": "email",
+          "sentDate": "2026-02-14T10:00:00.000Z",
+          "contactPerson": "Kurt Mackey",
+          "messageTemplate": "founder-cold-email-v2",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Sent a cold email referencing their blog post on Anycast routing. Kept it short."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0002-000000000001",
+          "scheduledDate": "2026-02-21T10:00:00.000Z",
+          "action": "Follow-up email if no response — reference the new Machines API post",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-21T10:00:00.000Z",
+      "keyPeople": [
+        {
+          "name": "Kurt Mackey",
+          "role": "CEO",
+          "notes": "Technically very deep. Responds to well-reasoned emails."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Fascinating infra problems. Fully remote, async-first culture.",
+      "source": "Twitter engineering posts",
+      "archived": false,
+      "createdAt": "2026-02-05T08:00:00.000Z",
+      "updatedAt": "2026-02-14T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800011_oi0002",
+      "company": "Temporal Technologies",
+      "role": "Senior Engineer, Developer Experience",
+      "columnId": "outreach-initiated",
+      "priority": "high",
+      "tags": ["remote", "backend", "referral-ready"],
+      "warmUpScore": 70,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0002-000000000001",
+          "type": "referral-request",
+          "sentDate": "2026-02-13T14:00:00.000Z",
+          "contactPerson": "Maxim Fateev",
+          "hasReferral": true,
+          "referrerName": "Sarah Chen",
+          "responseReceived": false,
+          "notes": "Sarah (ex-colleague at Acme) is friends with their CTO. She sent an intro."
+        }
+      ],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Maxim Fateev",
+          "role": "CEO & Co-founder",
+          "linkedInUrl": "https://linkedin.com/in/fateev",
+          "notes": "Built Cadence at Uber. Contact through Sarah."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Already use Temporal at home. The referral should carry serious weight here.",
+      "source": "Referral from Sarah Chen",
+      "archived": false,
+      "createdAt": "2026-02-10T09:00:00.000Z",
+      "updatedAt": "2026-02-13T14:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800012_oi0003",
+      "company": "Clerk",
+      "role": "Full Stack Engineer",
+      "columnId": "outreach-initiated",
+      "priority": "medium",
+      "tags": ["remote", "series-c"],
+      "warmUpScore": 40,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0005-000000000001",
+          "type": "share-content",
+          "actionDate": "2026-02-11T10:00:00.000Z",
+          "description": "Wrote a short post about using Clerk + Next.js, tagged them — got a like from their account",
+          "impactScore": 40
+        }
+      ],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0003-000000000001",
+          "type": "dm",
+          "sentDate": "2026-02-15T11:00:00.000Z",
+          "contactPerson": "Colin Sidoti",
+          "messageTemplate": "founder-dm-v1",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Sent a DM on Twitter thanking them for the product and expressing interest in the team."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0003-000000000001",
+          "scheduledDate": "2026-02-20T10:00:00.000Z",
+          "action": "Check if they posted a new role. Follow up DM if no reply.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-20T10:00:00.000Z",
+      "keyPeople": [],
+      "signals": [
+        {
+          "type": "post-like",
+          "date": "2026-02-11T12:00:00.000Z",
+          "description": "Clerk's official Twitter account liked my integration post"
+        }
+      ],
+      "attachments": [],
+      "notes": "Auth-as-a-service is hot. Growing fast, developer-loved product.",
+      "source": "LinkedIn job posting",
+      "archived": false,
+      "createdAt": "2026-02-09T10:00:00.000Z",
+      "updatedAt": "2026-02-15T11:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800013_fr0001",
+      "company": "Neon Database",
+      "role": "Senior Platform Engineer",
+      "columnId": "follow-up-required",
+      "priority": "high",
+      "tags": ["remote", "backend", "series-c"],
+      "warmUpScore": 60,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0004-000000000001",
+          "type": "email",
+          "sentDate": "2026-02-10T09:00:00.000Z",
+          "contactPerson": "Nikita Shamgunov",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Cold email referencing their Postgres branching architecture blog post."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0004-000000000001",
+          "scheduledDate": "2026-02-19T09:00:00.000Z",
+          "action": "Send follow-up email — reference the new WAL streaming post on their blog.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-19T09:00:00.000Z",
+      "keyPeople": [
+        {
+          "name": "Nikita Shamgunov",
+          "role": "CEO",
+          "linkedInUrl": "https://linkedin.com/in/nikitashamgunov",
+          "notes": "Co-founder of MemSQL. Deep database background."
+        }
+      ],
+      "signals": [],
+      "attachments": [],
+      "notes": "Serverless Postgres is a brilliant idea. No response yet after 9 days.",
+      "source": "Hacker News Show HN post",
+      "archived": false,
+      "createdAt": "2026-02-08T08:00:00.000Z",
+      "updatedAt": "2026-02-10T09:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800014_fr0002",
+      "company": "Retool",
+      "role": "Engineering Manager",
+      "columnId": "follow-up-required",
+      "priority": "high",
+      "tags": ["leadership", "series-c", "high-growth"],
+      "warmUpScore": 50,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0005-000000000001",
+          "type": "recruiter-contact",
+          "sentDate": "2026-02-08T15:00:00.000Z",
+          "contactPerson": "Jordan Park",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Replied to a LinkedIn InMail from their recruiter."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0005-000000000001",
+          "scheduledDate": "2026-02-19T14:00:00.000Z",
+          "action": "Follow up with Jordan via LinkedIn message — recruiter may have dropped ball.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-19T14:00:00.000Z",
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "notes": "Recruiter reached out first — that's a strong signal. Need to keep momentum.",
+      "source": "LinkedIn InMail from recruiter",
+      "archived": false,
+      "createdAt": "2026-02-07T12:00:00.000Z",
+      "updatedAt": "2026-02-08T15:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800015_fr0003",
+      "company": "Highlight.io",
+      "role": "Staff Engineer",
+      "columnId": "follow-up-required",
+      "priority": "medium",
+      "tags": ["remote", "backend", "stealth-role"],
+      "warmUpScore": 35,
+      "warmUpActions": [
+        {
+          "id": "b1c2d3e4-0000-0000-0006-000000000001",
+          "type": "join-community",
+          "actionDate": "2026-02-07T10:00:00.000Z",
+          "description": "Joined their Discord and contributed to a debugging discussion",
+          "impactScore": 25
+        }
+      ],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0006-000000000001",
+          "type": "dm",
+          "sentDate": "2026-02-12T11:00:00.000Z",
+          "contactPerson": "Jay Khatri",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "DM'd the co-founder via Discord after building rapport in their community."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0006-000000000001",
+          "scheduledDate": "2026-02-20T10:00:00.000Z",
+          "action": "Re-engage in Discord — answer another technical question publicly.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-20T10:00:00.000Z",
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "notes": "Open-source observability stack. Great culture signals from community behavior.",
+      "source": "Open source project on GitHub",
+      "archived": false,
+      "createdAt": "2026-02-06T14:00:00.000Z",
+      "updatedAt": "2026-02-12T11:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800016_cs0001",
+      "company": "Liveblocks",
+      "role": "Senior Engineer, Realtime",
+      "columnId": "conversation-started",
+      "priority": "high",
+      "tags": ["remote", "backend", "high-growth"],
+      "warmUpScore": 80,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0007-000000000001",
+          "type": "email",
+          "sentDate": "2026-02-11T09:00:00.000Z",
+          "contactPerson": "Steven Fabre",
+          "hasReferral": false,
+          "responseReceived": true,
+          "responseDate": "2026-02-13T10:00:00.000Z",
+          "notes": "He replied the same day! Very enthusiastic. Asked for more about my background."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0007-000000000001",
+          "scheduledDate": "2026-02-20T09:00:00.000Z",
+          "action": "Send calendar link for 30-min intro call.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-20T09:00:00.000Z",
+      "keyPeople": [
+        {
+          "name": "Steven Fabre",
+          "role": "CTO & Co-founder",
+          "linkedInUrl": "https://linkedin.com/in/stevenfahre",
+          "notes": "Responded to my cold email personally. Very engaged."
+        }
+      ],
+      "signals": [
+        {
+          "type": "connection-accept",
+          "date": "2026-02-13T11:00:00.000Z",
+          "description": "Steven accepted my LinkedIn connection request after email exchange"
+        },
+        {
+          "type": "message",
+          "date": "2026-02-13T10:00:00.000Z",
+          "description": "Replied asking about my experience with WebSocket infrastructure at scale"
+        }
+      ],
+      "attachments": [],
+      "notes": "CTO is engaged and asking smart questions. This is very warm. Move fast.",
+      "source": "Twitter engineering posts about CRDTs",
+      "archived": false,
+      "createdAt": "2026-02-09T10:00:00.000Z",
+      "updatedAt": "2026-02-13T11:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800017_cs0002",
+      "company": "Dub.co",
+      "role": "Full Stack Engineer",
+      "columnId": "conversation-started",
+      "priority": "medium",
+      "tags": ["remote", "high-growth"],
+      "warmUpScore": 60,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0008-000000000001",
+          "type": "dm",
+          "sentDate": "2026-02-12T16:00:00.000Z",
+          "contactPerson": "Steven Tey",
+          "hasReferral": false,
+          "responseReceived": true,
+          "responseDate": "2026-02-14T09:00:00.000Z",
+          "notes": "Replied suggesting we jump on a quick call. Great sign."
+        }
+      ],
+      "followUps": [],
+      "keyPeople": [
+        {
+          "name": "Steven Tey",
+          "role": "Founder",
+          "linkedInUrl": "https://linkedin.com/in/steventey",
+          "notes": "Open source first. Very community-driven."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-14T09:00:00.000Z",
+          "description": "Founder replied to my Twitter DM, suggested a quick intro call"
+        },
+        {
+          "type": "post-like",
+          "date": "2026-02-15T10:00:00.000Z",
+          "description": "Steven liked my tweet about open-source sustainability"
+        }
+      ],
+      "attachments": [],
+      "notes": "Fast-growing YC company. Founder is accessible and community-first.",
+      "source": "GitHub open source project",
+      "archived": false,
+      "createdAt": "2026-02-10T08:00:00.000Z",
+      "updatedAt": "2026-02-15T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800018_cs0003",
+      "company": "Upstash",
+      "role": "Platform Engineer, Serverless",
+      "columnId": "conversation-started",
+      "priority": "high",
+      "tags": ["remote", "backend", "high-growth"],
+      "warmUpScore": 75,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0009-000000000001",
+          "type": "application-submitted",
+          "sentDate": "2026-02-10T10:00:00.000Z",
+          "hasReferral": true,
+          "referrerName": "Alex Torres",
+          "responseReceived": true,
+          "responseDate": "2026-02-12T14:00:00.000Z",
+          "notes": "Alex introduced me to the hiring manager. Got a warm intro call scheduled."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0009-000000000001",
+          "scheduledDate": "2026-02-21T15:00:00.000Z",
+          "action": "Intro call with Enes Akar (CTO). Prepare serverless Redis use cases.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-21T15:00:00.000Z",
+      "keyPeople": [
+        {
+          "name": "Enes Akar",
+          "role": "CEO & Co-founder",
+          "linkedInUrl": "https://linkedin.com/in/enesakar",
+          "notes": "Warm intro from Alex Torres. Call scheduled for Feb 21."
+        }
+      ],
+      "signals": [
+        {
+          "type": "connection-accept",
+          "date": "2026-02-12T15:00:00.000Z",
+          "description": "CTO accepted LinkedIn connection + sent a welcome message"
+        }
+      ],
+      "attachments": [],
+      "notes": "Redis + Kafka serverless. Referral intro landed perfectly. Big opportunity.",
+      "source": "Referral from Alex Torres",
+      "archived": false,
+      "createdAt": "2026-02-08T09:00:00.000Z",
+      "updatedAt": "2026-02-12T15:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800019_ip0001",
+      "company": "Datadog",
+      "role": "Staff Engineer, Observability Platform",
+      "columnId": "interview-pipeline",
+      "priority": "high",
+      "tags": ["high-growth", "backend", "leadership"],
+      "warmUpScore": 85,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0010-000000000001",
+          "type": "recruiter-contact",
+          "sentDate": "2026-01-28T10:00:00.000Z",
+          "contactPerson": "Lisa Kim",
+          "hasReferral": false,
+          "responseReceived": true,
+          "responseDate": "2026-01-29T09:00:00.000Z",
+          "notes": "Recruiter reached out proactively. Phone screen booked for Feb 3."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0010-000000000001",
+          "scheduledDate": "2026-02-24T10:00:00.000Z",
+          "action": "Technical interview round 2 — system design. Review distributed tracing internals.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-24T10:00:00.000Z",
+      "interviewStage": "technical",
+      "interviewNotes": "Phone screen passed. Technical R1 on Feb 17 went well — interviewer was engaged. R2 system design scheduled for Feb 24.",
+      "keyPeople": [
+        {
+          "name": "Lisa Kim",
+          "role": "Technical Recruiter",
+          "notes": "Very responsive. Sends prep materials proactively."
+        },
+        {
+          "name": "Marco Bianchi",
+          "role": "Principal Engineer (Interviewer R1)",
+          "notes": "Asked deep questions about distributed tracing. Positive signals."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-17T16:00:00.000Z",
+          "description": "Recruiter messaged saying R1 feedback was positive, R2 to be scheduled"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "e1f2a3b4-0000-0000-0001-000000000001",
+          "name": "Datadog System Design Prep Notes.pdf",
+          "type": "pdf",
+          "url": "https://drive.google.com/file/prep-notes-datadog",
+          "uploadedAt": "2026-02-18T08:00:00.000Z"
+        }
+      ],
+      "notes": "Most advanced pipeline so far. Recruiter proactive, team seems excellent.",
+      "source": "LinkedIn InMail from recruiter",
+      "archived": false,
+      "createdAt": "2026-01-27T09:00:00.000Z",
+      "updatedAt": "2026-02-18T08:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800020_ip0002",
+      "company": "Cloudflare",
+      "role": "Senior Software Engineer, Workers",
+      "columnId": "interview-pipeline",
+      "priority": "high",
+      "tags": ["backend", "high-growth"],
+      "warmUpScore": 90,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0011-000000000001",
+          "scheduledDate": "2026-02-25T15:00:00.000Z",
+          "action": "Hiring manager interview. Prepare questions about team roadmap and remote culture.",
+          "completed": false
+        },
+        {
+          "id": "c1d2e3f4-0000-0000-0011-000000000002",
+          "scheduledDate": "2026-02-17T14:00:00.000Z",
+          "action": "Team interview loop — 3 back-to-back sessions",
+          "completed": true,
+          "completedAt": "2026-02-17T17:30:00.000Z",
+          "notes": "All 3 sessions went well. Interviewers were sharp and collaborative."
+        }
+      ],
+      "nextFollowUpDate": "2026-02-25T15:00:00.000Z",
+      "interviewStage": "hiring-manager",
+      "interviewNotes": "Technical loop completed Feb 17. All 3 interviewers gave positive signals. HM round Feb 25.",
+      "keyPeople": [
+        {
+          "name": "Priya Nair",
+          "role": "Engineering Manager, Workers",
+          "notes": "HM interview on Feb 25. Research her background."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-18T09:00:00.000Z",
+          "description": "Recruiter confirmed all 3 technical loops passed, moving to HM round"
+        }
+      ],
+      "attachments": [],
+      "notes": "Best technical interview experience so far. Team is world-class.",
+      "source": "Direct application via careers page",
+      "archived": false,
+      "createdAt": "2026-01-20T10:00:00.000Z",
+      "updatedAt": "2026-02-18T09:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800021_ip0003",
+      "company": "Grafana Labs",
+      "role": "Senior Engineer, Observability",
+      "columnId": "interview-pipeline",
+      "priority": "medium",
+      "tags": ["remote", "backend", "high-growth"],
+      "warmUpScore": 70,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0011-000000000001",
+          "type": "application-submitted",
+          "sentDate": "2026-02-01T11:00:00.000Z",
+          "hasReferral": false,
+          "responseReceived": true,
+          "responseDate": "2026-02-07T09:00:00.000Z",
+          "notes": "Applied via careers page. Recruiter reached out within 6 days."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0012-000000000001",
+          "scheduledDate": "2026-02-26T14:00:00.000Z",
+          "action": "Final panel interview. Prepare a short talk on distributed metrics ingestion.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-26T14:00:00.000Z",
+      "interviewStage": "final-round",
+      "interviewNotes": "Screening + 2 technical rounds complete. Final panel on Feb 26. Very positive feedback from technical rounds.",
+      "keyPeople": [
+        {
+          "name": "Tom Wilkie",
+          "role": "CTO",
+          "linkedInUrl": "https://linkedin.com/in/tomwilkie",
+          "notes": "Creator of Cortex. May be on the final panel."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-16T10:00:00.000Z",
+          "description": "Recruiter said technical feedback was 'exceptionally positive' and fast-tracking to final round"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "e1f2a3b4-0000-0000-0002-000000000001",
+          "name": "Grafana Architecture Screenshot.png",
+          "type": "image",
+          "url": "https://grafana.com/blog/architecture-diagram.png",
+          "uploadedAt": "2026-02-15T09:00:00.000Z"
+        }
+      ],
+      "notes": "Fastest pipeline so far. Final round Feb 26. Feeling very confident.",
+      "source": "Direct application via careers page",
+      "archived": false,
+      "createdAt": "2026-02-01T11:00:00.000Z",
+      "updatedAt": "2026-02-16T10:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800022_sc0001",
+      "company": "Hasura",
+      "role": "Senior Engineer",
+      "columnId": "stalled-cold",
+      "priority": "low",
+      "tags": ["remote", "backend"],
+      "warmUpScore": 40,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0012-000000000001",
+          "type": "email",
+          "sentDate": "2026-01-20T09:00:00.000Z",
+          "contactPerson": "Tanmai Gopal",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Cold email, no response."
+        },
+        {
+          "id": "d1e2f3a4-0000-0000-0012-000000000002",
+          "type": "dm",
+          "sentDate": "2026-01-28T14:00:00.000Z",
+          "contactPerson": "Tanmai Gopal",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "Follow-up DM on Twitter. Also no response."
+        }
+      ],
+      "followUps": [],
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "stateReason": "no-response",
+      "notes": "Two attempts, zero signal. May retry in 6 weeks from a different angle.",
+      "source": "Twitter post about GraphQL",
+      "archived": false,
+      "createdAt": "2026-01-15T10:00:00.000Z",
+      "updatedAt": "2026-01-28T14:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800023_sc0002",
+      "company": "Railway",
+      "role": "Infrastructure Engineer",
+      "columnId": "stalled-cold",
+      "priority": "low",
+      "tags": ["remote", "stealth-role", "high-growth"],
+      "warmUpScore": 20,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0013-000000000001",
+          "type": "dm",
+          "sentDate": "2026-01-25T11:00:00.000Z",
+          "contactPerson": "Jake Cooper",
+          "hasReferral": false,
+          "responseReceived": false,
+          "notes": "DM'd founder. No reply after 3 weeks."
+        }
+      ],
+      "followUps": [],
+      "keyPeople": [],
+      "signals": [],
+      "attachments": [],
+      "stateReason": "role-frozen",
+      "notes": "Heard through community they paused hiring after a funding round complication. Revisit Q3.",
+      "source": "Developer community Slack",
+      "archived": false,
+      "createdAt": "2026-01-22T09:00:00.000Z",
+      "updatedAt": "2026-01-25T11:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800024_os0001",
+      "company": "Cloudflare",
+      "role": "Staff Engineer, R2 Storage",
+      "columnId": "offer-success",
+      "priority": "high",
+      "tags": ["backend", "leadership", "high-growth"],
+      "warmUpScore": 95,
+      "warmUpActions": [],
+      "outreachRecords": [],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0014-000000000001",
+          "scheduledDate": "2026-02-21T12:00:00.000Z",
+          "action": "Deadline to respond to offer or request extension.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-21T12:00:00.000Z",
+      "interviewStage": "offer-pending",
+      "interviewNotes": "4-round process complete. Offer received Feb 18. Reviewing compensation package.",
+      "keyPeople": [
+        {
+          "name": "Priya Nair",
+          "role": "Engineering Manager",
+          "notes": "Will be direct manager. Brilliant and very people-focused."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-18T17:00:00.000Z",
+          "description": "Formal offer letter received via email from recruiter"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "e1f2a3b4-0000-0000-0003-000000000001",
+          "name": "Cloudflare Offer Letter.pdf",
+          "type": "pdf",
+          "url": "https://drive.google.com/file/cloudflare-offer",
+          "uploadedAt": "2026-02-18T17:30:00.000Z"
+        },
+        {
+          "id": "e1f2a3b4-0000-0000-0003-000000000002",
+          "name": "Compensation Research",
+          "type": "url",
+          "url": "https://levels.fyi/company/cloudflare",
+          "uploadedAt": "2026-02-19T08:00:00.000Z"
+        }
+      ],
+      "notes": "Offer is $245k TC. Slightly below target. Need to negotiate RSU cliff.",
+      "source": "Direct application + recruiter intro",
+      "stateReason": "offer-accepted",
+      "archived": false,
+      "createdAt": "2026-01-10T10:00:00.000Z",
+      "updatedAt": "2026-02-19T08:00:00.000Z"
+    },
+
+    {
+      "id": "jt_1708360800025_os0002",
+      "company": "Linear",
+      "role": "Staff Engineer",
+      "columnId": "offer-success",
+      "priority": "high",
+      "tags": ["remote", "stealth-role", "high-growth"],
+      "warmUpScore": 100,
+      "warmUpActions": [],
+      "outreachRecords": [
+        {
+          "id": "d1e2f3a4-0000-0000-0014-000000000001",
+          "type": "referral-request",
+          "sentDate": "2026-02-03T10:00:00.000Z",
+          "hasReferral": true,
+          "referrerName": "Marcus Lee",
+          "responseReceived": true,
+          "responseDate": "2026-02-05T14:00:00.000Z",
+          "notes": "Marcus intro'd me directly to the CTO. Process moved incredibly fast."
+        }
+      ],
+      "followUps": [
+        {
+          "id": "c1d2e3f4-0000-0000-0015-000000000001",
+          "scheduledDate": "2026-02-22T12:00:00.000Z",
+          "action": "Final decision deadline — compare against Cloudflare offer.",
+          "completed": false
+        }
+      ],
+      "nextFollowUpDate": "2026-02-22T12:00:00.000Z",
+      "interviewStage": "offer-pending",
+      "interviewNotes": "2-week process start to finish. Offer received Feb 17. $280k TC. Above target. Very hard to turn down.",
+      "keyPeople": [
+        {
+          "name": "Karri Saarinen",
+          "role": "CEO & Co-founder",
+          "linkedInUrl": "https://linkedin.com/in/karrisaarinen",
+          "notes": "Did a personal call during the process. That never happens."
+        },
+        {
+          "name": "Marcus Lee",
+          "role": "Referrer (ex-colleague)",
+          "notes": "Strong referral from Marcus opened the door instantly."
+        }
+      ],
+      "signals": [
+        {
+          "type": "message",
+          "date": "2026-02-17T16:30:00.000Z",
+          "description": "Offer received via email — $280k TC, fully remote, strong equity package"
+        },
+        {
+          "type": "connection-accept",
+          "date": "2026-02-05T11:00:00.000Z",
+          "description": "CEO connected on LinkedIn after Marcus's intro"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "e1f2a3b4-0000-0000-0004-000000000001",
+          "name": "Linear Offer Letter.pdf",
+          "type": "pdf",
+          "url": "https://drive.google.com/file/linear-offer",
+          "uploadedAt": "2026-02-17T17:00:00.000Z"
+        }
+      ],
+      "notes": "Dream role. $280k TC, fully remote, world-class team. Most likely to accept.",
+      "source": "Referral from Marcus Lee",
+      "stateReason": "offer-accepted",
+      "archived": false,
+      "createdAt": "2026-02-02T09:00:00.000Z",
+      "updatedAt": "2026-02-19T08:00:00.000Z"
+    }
+
+  ]
+}

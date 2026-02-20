@@ -19,12 +19,22 @@ import type { JobTarget } from '../../types';
  * - Prevents unnecessary re-renders of child components
  * - Stable function references across renders
  */
-export function KanbanBoardPage() {
-  const { boardState, addJobTarget, updateJobTarget, deleteJobTarget, moveJobTarget } = useBoardState();
+export interface KanbanBoardPageProps {
+  /** Override the localStorage key. Useful for isolating Storybook data from the live app. */
+  storageKey?: string;
+}
+
+export function KanbanBoardPage({ storageKey }: KanbanBoardPageProps = {}) {
+  const { boardState, addJobTarget, updateJobTarget, deleteJobTarget, moveJobTarget } = useBoardState(storageKey);
   const [selectedTarget, setSelectedTarget] = useState<JobTarget | null>(null);
   const [detailModalOpen, setDetailModalOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedColumnId, setSelectedColumnId] = useState<ColumnId>('targets-identified');
+  const [hiddenColumnIds, setHiddenColumnIds] = useState<string[]>([]);
+
+  const handleCloseColumn = useCallback((columnId: string) => {
+    setHiddenColumnIds((prev) => [...prev, columnId]);
+  }, []);
 
   // Filter hook
   const {
@@ -131,7 +141,7 @@ export function KanbanBoardPage() {
         }}
       >
         <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
-          Hunt Board
+          Job Hunt Board
         </Typography>
         <SearchFilterBar
           searchQuery={searchQuery}
@@ -156,8 +166,11 @@ export function KanbanBoardPage() {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', sm: 'row' },
+            flexWrap: 'nowrap',
+            alignItems: 'flex-start',
             gap: 2,
             overflowX: { xs: 'hidden', sm: 'auto' },
+            width: '100%',
             pb: 2,
             '&::-webkit-scrollbar': {
               height: '10px',
@@ -168,7 +181,9 @@ export function KanbanBoardPage() {
             },
           }}
         >
-          {boardState.columns.map((column) => (
+          {boardState.columns
+            .filter((column) => !hiddenColumnIds.includes(column.id))
+            .map((column) => (
             <KanbanColumn
               key={column.id}
               column={column}
@@ -177,6 +192,7 @@ export function KanbanBoardPage() {
               onCardClick={handleCardClick}
               onEditTarget={handleEditTarget}
               onDeleteTarget={handleDeleteTarget}
+              onClose={() => { handleCloseColumn(column.id); }}
             />
           ))}
         </Box>

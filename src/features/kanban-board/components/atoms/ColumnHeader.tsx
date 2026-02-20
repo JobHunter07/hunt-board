@@ -12,10 +12,10 @@ export function ColumnHeader({ title, count, color }: ColumnHeaderProps) {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: 1,
+        gap: 0.5,
         mb: 2,
         pb: 1,
+        pr: '80px', // reserve space for absolute window controls (+ − □ ×)
         borderBottom: color ? `3px solid ${color}` : '3px solid #E0E0E0'
       }}
       role="heading"
@@ -26,8 +26,14 @@ export function ColumnHeader({ title, count, color }: ColumnHeaderProps) {
         component="h2"
         sx={{
           fontWeight: 600,
-          fontSize: { xs: '1rem', sm: '1.1rem' },
-          color: 'text.primary'
+          fontSize: { xs: '0.8rem', sm: '0.85rem' },
+          color: 'text.primary',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          lineHeight: 1.25,
+          flex: 1,
+          minWidth: 0,
         }}
       >
         {title}
@@ -40,7 +46,10 @@ export function ColumnHeader({ title, count, color }: ColumnHeaderProps) {
           backgroundColor: color ?? '#E0E0E0',
           color: '#FFFFFF',
           fontWeight: 600,
-          minWidth: '28px'
+          minWidth: '24px',
+          height: '18px',
+          fontSize: '0.7rem',
+          flexShrink: 0,
         }}
       />
     </Box>

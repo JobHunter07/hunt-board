@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { KanbanBoardPage } from '@/features/kanban-board/components/pages/KanbanBoardPage';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import seedData from '../data/populated-board.json';
+
+const STORYBOOK_STORAGE_KEY = 'hunt-board:storybook:board-state';
 
 /**
  * KanbanBoardPage is the main Hunt Board interface with 9 columns and drag-and-drop.
@@ -43,15 +46,23 @@ type Story = StoryObj<typeof KanbanBoardPage>;
 export const Default: Story = {};
 
 /**
- * Board loaded from localStorage (simulated populated state).
- * 
- * **Note**: Actual data persistence happens via localStorage in useBoardState hook.
- * This story shows the board in a realistic working state.
+ * Board pre-seeded with 25 realistic job targets spread across all 9 columns.
+ * Data is loaded from src/stories/data/populated-board.json into a Storybook-namespaced
+ * localStorage key so it never collides with the live app's data.
  */
 export const PopulatedBoard: Story = {
+  args: {
+    storageKey: STORYBOOK_STORAGE_KEY,
+  },
+  loaders: [
+    async () => {
+      localStorage.setItem(STORYBOOK_STORAGE_KEY, JSON.stringify(seedData));
+      return {};
+    },
+  ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    
+
     // Verify all 9 columns are present
     const columns = [
       'Targets Identified',
@@ -68,6 +79,10 @@ export const PopulatedBoard: Story = {
     for (const columnTitle of columns) {
       await expect(canvas.getByText(columnTitle)).toBeInTheDocument();
     }
+
+    // Verify a sample of cards are visible
+    await expect(canvas.getByText('Stripe')).toBeInTheDocument();
+    await expect(canvas.getByText('Datadog')).toBeInTheDocument();
 
     // Verify main heading
     await expect(canvas.getByText('Hunt Board')).toBeInTheDocument();
