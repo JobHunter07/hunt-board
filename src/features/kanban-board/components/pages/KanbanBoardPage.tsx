@@ -159,6 +159,14 @@ export function KanbanBoardPage({ storageKey }: KanbanBoardPageProps = {}) {
         />
       </Box>
 
+      <Box
+        role="status"
+        aria-live="polite"
+        sx={{ fontSize: '0.8rem', color: 'text.secondary', mb: 1 }}
+      >
+        Showing {filteredCards.length} of {(boardState.jobTargets ?? []).length} targets
+      </Box>
+
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         <Box
           role="region"
